@@ -1,8 +1,19 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useCmsService } from '@/services/useCmsService';
 
+const isDisable = computed(() => {
+  return !form.value.footerContent;
+});
+
+import { ref } from 'vue';
+
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
+
+const items = [
+  { text: 'Revisados', icon: 'mdi-flag' },
+  { text: 'Postados', icon: 'mdi-flag' },
+];
 
 const form = ref({
   title: '',
@@ -53,8 +64,11 @@ function clearForm() {
         <v-row>
           <v-col cols="2">
             <v-sheet rounded="lg">
-              <v-list rounded="lg">
-                <v-list-item v-for="n in 5" :key="n" link :title="`List Item ${n}`" class="text-white"></v-list-item>
+              <v-list rounded="lg" class="bg-grey-darken-2">
+                <v-list-subheader class="text-white font-weight-bold">Artigos Recentes</v-list-subheader>
+                <v-list-item v-for="(item, i) in items" :key="i" :value="item" variant="plain" class="text-white"
+                  ><template v-slot:prepend> <v-icon :icon="item.icon"></v-icon> </template
+                ></v-list-item>
 
                 <v-divider class="my-2"></v-divider>
 
@@ -73,11 +87,15 @@ function clearForm() {
                       variant="filled"
                       clear-icon="mdi-close-circle"
                       clearable
-                      label="Título do Blog"
-                      type="text"></v-text-field>
+                      <<<<<<<
+                      HEAD
+                      label="Título do Artigo"
+                      type="text"
+                      @click:append="sendMessage"
+                      @click:clear="clearMessage"></v-text-field>
                   </v-col>
                   <v-col cols="1">
-                    <v-btn icon class="bg-orange-darken-4" @click="generateTitle">
+                    <v-btn icon class="bg-orange-darken-3" :disabled="isDisable"  @click="generateTitle">
                       <v-icon>mdi-robot-confused-outline</v-icon>
                       <v-tooltip activator="parent" location="start">Gerar título por Inteligência Artificial </v-tooltip>
                     </v-btn>
@@ -89,7 +107,7 @@ function clearForm() {
                   class="text-white"
                   clear-icon="mdi-close-circle"
                   clearable
-                  label="Conteúdo do Blog"
+                  label="Conteúdo do Artigo"
                   required
                   auto-grow></v-textarea>
 
@@ -102,6 +120,7 @@ function clearForm() {
                   label="Autor"
                   type="text"></v-text-field>
               </v-form>
+              <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
                 <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
                 <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4">Salvar</v-btn>
