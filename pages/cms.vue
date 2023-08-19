@@ -33,8 +33,8 @@ function clearForm() {
 </script>
 
 <template>
-  <v-app id="inspire">
-    <v-app-bar flat class="bg-orange-darken-3 text-white">
+  <v-app>
+    <v-app-bar flat class="bg-orange-darken-4 text-white">
       <v-container class="mx-auto d-flex align-center justify-center">
         <v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar>
 
@@ -57,7 +57,7 @@ function clearForm() {
       </v-container>
     </v-app-bar>
 
-    <v-main class="bg-grey-darken-3">
+    <v-main>
       <v-container>
         <v-row>
           <v-col cols="2">
@@ -76,7 +76,7 @@ function clearForm() {
           </v-col>
 
           <v-col>
-            <v-sheet min-height="70vh" rounded="lg" class="pa-10 bg-grey-darken-2">
+            <v-sheet min-height="70vh" rounded="lg" class="pa-10">
               <v-form>
                 <v-row gap="20">
                   <v-col cols="11">
@@ -91,7 +91,7 @@ function clearForm() {
                       @click:clear="clearMessage"></v-text-field>
                   </v-col>
                   <v-col cols="1">
-                    <v-btn icon class="bg-orange-darken-3" :disabled="isDisable">
+                    <v-btn icon class="bg-orange-darken-3" :disabled="isDisable"  @click="generateTitle">
                       <v-icon>mdi-robot-confused-outline</v-icon>
                       <v-tooltip activator="parent" location="start">Gerar título por Inteligência Artificial </v-tooltip>
                     </v-btn>
@@ -119,7 +119,7 @@ function clearForm() {
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
                 <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
-                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-3">Salvar</v-btn>
+                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4">Salvar</v-btn>
               </div>
             </v-sheet>
           </v-col>
