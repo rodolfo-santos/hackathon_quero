@@ -1,12 +1,10 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { useCmsService } from '@/services/useCmsService';
 
 const isDisable = computed(() => {
   return !form.value.footerContent;
 });
-
-import { ref } from 'vue';
 
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 
@@ -67,7 +65,7 @@ function clearForm() {
               <v-list rounded="lg" class="bg-grey-darken-2">
                 <v-list-subheader class="text-white font-weight-bold">Artigos Recentes</v-list-subheader>
                 <v-list-item v-for="(item, i) in items" :key="i" :value="item" variant="plain" class="text-white"
-                  ><template v-slot:prepend> <v-icon :icon="item.icon"></v-icon> </template
+                  ><template #prepend> <v-icon :icon="item.icon"></v-icon> </template
                 ></v-list-item>
 
                 <v-divider class="my-2"></v-divider>
@@ -87,8 +85,6 @@ function clearForm() {
                       variant="filled"
                       clear-icon="mdi-close-circle"
                       clearable
-                      <<<<<<<
-                      HEAD
                       label="Título do Artigo"
                       type="text"
                       @click:append="sendMessage"
