@@ -69,6 +69,57 @@ const html = `
         </v-row>
       </v-container>
     </v-main>
+    <v-form>
+      <v-container>
+          <v-row class="inputs">
+            <v-col
+              cols="8"
+              md="2"
+            >
+              <v-text-field
+              
+                :counter="15"
+                label="First name"
+                required
+              ></v-text-field>
+            </v-col>
+
+            <v-col
+              cols="8"
+              md="2"
+            >
+              <v-text-field
+                :counter="15"
+                label="Last name"
+                required
+              ></v-text-field>
+          </v-col>
+          <v-col class="email"
+              cols="12"
+              md="2"
+            >
+              <v-text-field
+                label="E-mail"
+                required
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row class="coment">
+            <v-col 
+            cols="12"
+            md="6">
+            <v-textarea label="Comentário"></v-textarea>
+            </v-col>
+          </v-row>
+          <v-row>
+          <v-col cols="18"
+          md="8">
+          <v-btn class="send" 
+          type="submit" blockclass="mt-2">Submit</v-btn>
+          </v-col>
+          </v-row>
+      </v-container>
+  </v-form>
 
     <v-footer class="text-center d-flex flex-column">
       <div>
@@ -86,4 +137,14 @@ const html = `
 h2 {
   margin-top: 2rem;
 }
+.email{
+  margin-top: 0;
+}
+.coment{
+ margin-bottom: 3px;
+}
+.send{
+  width: 200px;
+}
+
 </style>
