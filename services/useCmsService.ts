@@ -1,6 +1,13 @@
 export const useCmsService = () => {
   async function generateTitle(article: string) {
-    const data = await $fetch('/api/cms/generate-title');
+    const data = await $fetch('/api/cms/generate-title', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        article,
+      }),
+    });
+
     return data;
   }
 
