@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useCmsService } from '@/services/useCmsService';
 
 const isDisable = computed(() => {
-  return !form.value.footerContent;
+  return !form.value.content;
 });
 
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
@@ -62,7 +62,7 @@ function clearForm() {
         <v-row>
           <v-col cols="2">
             <v-sheet rounded="lg">
-              <v-list rounded="lg" class="bg-grey-darken-2">
+              <v-list rounded="lg">
                 <v-list-subheader class="text-white font-weight-bold">Artigos Recentes</v-list-subheader>
                 <v-list-item v-for="(item, i) in items" :key="i" :value="item" variant="plain" class="text-white"
                   ><template #prepend> <v-icon :icon="item.icon"></v-icon> </template
@@ -91,7 +91,7 @@ function clearForm() {
                       @click:clear="clearMessage"></v-text-field>
                   </v-col>
                   <v-col cols="1">
-                    <v-btn icon class="bg-orange-darken-3" :disabled="isDisable"  @click="generateTitle">
+                    <v-btn icon class="bg-orange-darken-3" :disabled="isDisable" @click="generateTitle">
                       <v-icon>mdi-robot-confused-outline</v-icon>
                       <v-tooltip activator="parent" location="start">Gerar título por Inteligência Artificial </v-tooltip>
                     </v-btn>
