@@ -1,4 +1,4 @@
-export default defineEventHandler((e) => {
+export default defineEventHandler(() => {
   return {
     text: 'Hello World!',
   };
