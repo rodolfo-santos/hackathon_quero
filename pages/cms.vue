@@ -1,38 +1,28 @@
 <script setup>
-import { ref, watch } from 'vue';
 
-const variable = ref('')
+import { ref } from 'vue';
 
-
-watch(variable, () => {
-
-})
-
-const data = computed(() => {
-  return ''
-})
-
-onMounted(() => {
-
-})
 
 const form = ref({
   title: '',
   footerContent: '',
 });
 
-// function submitForm = () => {
-//   // Aqui você pode implementar a lógica para enviar os dados do formulário
-//   // Por exemplo, enviar os dados para uma API ou salvá-los localmente
-//   console.log('Formulário enviado:', form.value);
-// };
+
+const submitForm = () => {
+  // Aqui você pode implementar a lógica para enviar os dados do formulário
+  // Por exemplo, enviar os dados para uma API ou salvá-los localmente
+  console.log('Formulário enviado:', form.value);
+};
 
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 </script>
 
 <template>
   <v-app id="inspire">
+
     <v-app-bar flat class="bg-orange-darken-3">
+
       <v-container class="mx-auto d-flex align-center justify-center">
         <v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar>
 
@@ -84,7 +74,9 @@ const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
                   </v-col>
                 </v-row>
 
+
                 <v-textarea v-model="form.footerContent" clear-icon="mdi-close-circle" clearable label="Conteúdo" required auto-grow></v-textarea>
+
                 <v-text-field
                   v-model="form.title"
                   :prepend-icon="icon"
@@ -95,8 +87,10 @@ const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
                   type="text"></v-text-field>
               </v-form>
               <div class="d-flex justify-end">
+
                 <v-btn type="clear" class="font-weight-bold bg-grey-darken-3 text-orange-darken-3 mr-3">Limpar</v-btn>
                 <v-btn type="submit" class="font-weight-bold text-grey-darken-3 bg-orange-darken-3">Salvar</v-btn>
+
               </div>
             </v-sheet>
           </v-col>
