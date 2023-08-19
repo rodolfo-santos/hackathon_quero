@@ -1,0 +1,392 @@
+[
+  {
+    "id": 279979,
+    "name": "José da Sauro",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Gabriel Gomes ",
+      "cpf": "46686271861",
+      "email": "gabriel.gomes@redealumni.com",
+      "phone": "12921231321"
+    },
+    "offer": {
+      "id": 805560,
+      "stage": { "name": "Educação Infantil", "slug": "infantil" },
+      "grade": { "name": "G3 (3 anos)", "slug": "infantil_g3" },
+      "shift": { "name": "Noturno", "slug": "noturno" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 250,
+      "discountPercentage": 50
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "445622D24EA19462F82B317C9807056E"
+  },
+  {
+    "id": 279590,
+    "name": "Querido Quero",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Tamires Rabello de Sousa ",
+      "cpf": "43469563861",
+      "email": "tamires.rabello@redealumni.com",
+      "phone": "12981973743"
+    },
+    "offer": {
+      "id": 810463,
+      "stage": { "name": "Educação Infantil", "slug": "infantil" },
+      "grade": { "name": "Berçário (0 a 1 ano)", "slug": "infantil_bercario" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 300,
+      "discountPercentage": 70
+    },
+    "paymentStatus": "chargeback",
+    "internalTransactionCode": "5D378ACB00B765B11C2966F81DE8EB8A"
+  },
+  {
+    "id": 278504,
+    "name": "Leonardo Botelho dos Santosss",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Rodolfo dos Santos ",
+      "cpf": "46509444810",
+      "email": "rodolfo_soueu@gmail.com",
+      "phone": "12997306744"
+    },
+    "offer": {
+      "id": 803712,
+      "stage": { "name": "Educação Infantil", "slug": "infantil" },
+      "grade": { "name": "G2 (2 anos)", "slug": "infantil_g2" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 80,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "chargeback",
+    "internalTransactionCode": "D18818BE98EF54AE3310F123F338A7E8"
+  },
+  {
+    "id": 277806,
+    "name": "José da Sauro",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Gabriel Gomes ",
+      "cpf": "46686271861",
+      "email": "gabriel.gomes@redealumni.com",
+      "phone": "12921231321"
+    },
+    "offer": {
+      "id": 800412,
+      "stage": { "name": "Ensino Fundamental I", "slug": "fundamental_I" },
+      "grade": { "name": "1° Ano", "slug": "fundamentalI_1" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 75,
+      "discountPercentage": 25
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "B27F70B4A242824BBA24A6FB14ADE4E8"
+  },
+  {
+    "id": 272561,
+    "name": "Kaique Almeida Santos",
+    "overdueStatus": {
+      "name": "Cancelado",
+      "slug": "canceled"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Carlos Santos ",
+      "cpf": "34011141828",
+      "email": "carlos.santos.dev@gmail.com",
+      "phone": "15981545049"
+    },
+    "offer": {
+      "id": 777556,
+      "stage": { "name": "Educação Infantil", "slug": "infantil" },
+      "grade": { "name": "G2 (2 anos)", "slug": "infantil_g2" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 2,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "chargeback",
+    "internalTransactionCode": "FA742587F93C9A70427E58AE92A7C764"
+  },
+  {
+    "id": 272559,
+    "name": "Teste Techgda",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Corporativo m ",
+      "cpf": "51187982059",
+      "email": "corporativo@melhorescola.net",
+      "phone": "14981028584"
+    },
+    "offer": {
+      "id": 777556,
+      "stage": { "name": "Ensino Fundamental I", "slug": "fundamental_I" },
+      "grade": { "name": "1° Ano", "slug": "fundamentalI_1" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 2,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "7D93DD99C0934F8F85447B6693F4D515"
+  },
+  {
+    "id": 272035,
+    "name": "Teste Tecc",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Michael Vinicius ",
+      "cpf": "47411633852",
+      "email": "michael.izidoro@redealumni.com",
+      "phone": "12982317576"
+    },
+    "offer": {
+      "id": 777556,
+      "stage": { "name": "Ensino Fundamental I", "slug": "fundamental_I" },
+      "grade": { "name": "3° Ano", "slug": "fundamentalI_3" },
+      "shift": { "name": "Tarde", "slug": "tarde" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 2,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "9F4275815243A7C58C21C0564916CAF3"
+  },
+  {
+    "id": 272004,
+    "name": "Leonardo Botelho dos Santoss",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Rodolfo dos Santos ",
+      "cpf": "46509444810",
+      "email": "rodolfo_soueu@gmail.com",
+      "phone": "12997306744"
+    },
+    "offer": {
+      "id": 777556,
+      "stage": { "name": "Ensino Fundamental I", "slug": "fundamental_I" },
+      "grade": { "name": "3° Ano", "slug": "fundamentalI_3" },
+      "shift": { "name": "Tarde", "slug": "tarde" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 2,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "87733BCDFD9111754A5B18B268B2A14C"
+  },
+  {
+    "id": 265279,
+    "name": "Teste Techhh",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Michael Vinicius ",
+      "cpf": "47411633852",
+      "email": "michael.izidoro@redealumni.com",
+      "phone": "12982317576"
+    },
+    "offer": {
+      "id": 750426,
+      "stage": { "name": "Ensino Fundamental I", "slug": "fundamental_I" },
+      "grade": { "name": "4° Ano", "slug": "fundamentalI_4" },
+      "shift": { "name": "Tarde", "slug": "tarde" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 1.04,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "chargeback",
+    "internalTransactionCode": "C6308ACB0F457B50640E5758547C14A2"
+  },
+  {
+    "id": 253991,
+    "name": "Teste Tech Michael",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Michael Vinicius ",
+      "cpf": "47411633852",
+      "email": "michael.izidoro@redealumni.com",
+      "phone": "12982317576"
+    },
+    "offer": {
+      "id": 750426,
+      "stage": { "name": "Ensino Fundamental II", "slug": "fundamental_II" },
+      "grade": { "name": "6° Ano", "slug": "fundamentalI_6" },
+      "shift": { "name": "Tarde", "slug": "tarde" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 1.04,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "5F4F6BA8ACF581B616F3C33DA61C65A1"
+  },
+  {
+    "id": 253584,
+    "name": "Leticia Botelho dos Santos",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Rodolfo dos Santos ",
+      "cpf": "46509444810",
+      "email": "rodolfo_soueu@gmail.com",
+      "phone": "12997306744"
+    },
+    "offer": {
+      "id": 750426,
+      "stage": { "name": "Ensino Fundamental II", "slug": "fundamental_II" },
+      "grade": { "name": "7° Ano", "slug": "fundamentalII_7" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 1.04,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "921D61421B11C7072C9F13C1DE724007"
+  },
+  {
+    "id": 252868,
+    "name": "Leonardo Botelho dos Santos",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Rodolfo dos Santos ",
+      "cpf": "46509444810",
+      "email": "rodolfo_soueu@gmail.com",
+      "phone": "12997306744"
+    },
+    "offer": {
+      "id": 750426,
+      "stage": { "name": "Educação Infantil", "slug": "infantil" },
+      "grade": { "name": "G2 (2 anos)", "slug": "infantil_g2" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2023,
+      "monthlyFeeWithDiscount": 1.04,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "chargeback",
+    "internalTransactionCode": "35C1FC78A94EF11B2BF6BC80CE2918B3"
+  },
+  {
+    "id": 217735,
+    "name": "Naruto",
+    "overdueStatus": {
+      "name": "Inadimplente",
+      "slug": "inadimplente"
+    },
+    "expireAt": "22/11/2022",
+    "responsible": {
+      "name": "Gustavo Guimarães ",
+      "cpf": "42158134097",
+      "email": "gustavo.guimaraes@quero.com",
+      "phone": "12981659527"
+    },
+    "offer": {
+      "id": 625202,
+      "stage": { "name": "Ensino Fundamental II", "slug": "fundamental_II" },
+      "grade": { "name": "7° Ano", "slug": "fundamentalII_7" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2022,
+      "monthlyFeeWithDiscount": 8,
+      "discountPercentage": 60
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "543A74EB529938AED679D9E2818E666F"
+  },
+  {
+    "id": 217727,
+    "name": "Naruto",
+    "overdueStatus": {
+      "name": "Regular",
+      "slug": "regular"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Gustavo Guimarães ",
+      "cpf": "42158134097",
+      "email": "gustavo.guimaraes@quero.com",
+      "phone": "12981659527"
+    },
+    "offer": {
+      "id": 625197,
+      "stage": { "name": "Ensino Fundamental II", "slug": "fundamental_II" },
+      "grade": { "name": "8° Ano", "slug": "fundamentalII_8" },
+      "shift": { "name": "Manhã", "slug": "manha" },
+      "year": 2022,
+      "monthlyFeeWithDiscount": 8,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "paid",
+    "internalTransactionCode": "CA4BAB027C7CA750B485F45A0D5F05D7"
+  },
+  {
+    "id": 217702,
+    "name": "Aluno de Teste Quero",
+    "overdueStatus": {
+      "name": "Inadimplente",
+      "slug": "inadimplente"
+    },
+    "expireAt": "12/08/2023",
+    "responsible": {
+      "name": "Leonardo Nakao ",
+      "cpf": "38876189807",
+      "email": "leonardo.nakao@redealumni.com",
+      "phone": "14981028845"
+    },
+    "offer": {
+      "id": 625193,
+      "stage": { "name": "Ensino Fundamental II", "slug": "fundamental_II" },
+      "grade": { "name": "8° Ano", "slug": "fundamentalII_8" },
+      "shift": { "name": "Tarde", "slug": "tarde" },
+      "year": 2022,
+      "monthlyFeeWithDiscount": 1.6,
+      "discountPercentage": 20
+    },
+    "paymentStatus": "chargeback",
+    "internalTransactionCode": "776EC5B51DF8293D4505C7F435702C58"
+  }
+]
