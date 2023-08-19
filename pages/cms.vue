@@ -1,33 +1,23 @@
 <script setup>
-import { ref, watch } from 'vue';
-
-const variable = ref('');
-
-watch(variable, () => {});
-
-const data = computed(() => {
-  return '';
-});
-
-onMounted(() => {});
+import { ref } from 'vue';
+import { useCmsService } from '@/services/useCmsService';
 
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 
 const form = ref({
   title: '',
-  footerContent: '',
+  content: '',
   author: '',
 });
 
-function clearForm() {
-  form.value.title = '';
-  form.value.footerContent = '';
-  form.value.author = '';
-  console.log('teste');
+function generateTitle() {
+  form.value.title = useCmsService().generateTitle(form.value.title);
 }
 
-function submitForm() {
-  console.log('Chamada para API');
+function clearForm() {
+  form.value.title = '';
+  form.value.content = '';
+  form.value.author = '';
 }
 </script>
 
@@ -87,7 +77,7 @@ function submitForm() {
                       @click:clear="clearMessage"></v-text-field>
                   </v-col>
                   <v-col cols="1">
-                    <v-btn icon class="bg-orange-darken-3">
+                    <v-btn icon class="bg-orange-darken-3" @click="generateTitle">
                       <v-icon>mdi-robot-confused-outline</v-icon>
                       <v-tooltip activator="parent" location="start">Gerar título por Inteligência Artificial </v-tooltip>
                     </v-btn>
@@ -95,7 +85,7 @@ function submitForm() {
                 </v-row>
 
                 <v-textarea
-                  v-model="form.footerContent"
+                  v-model="form.content"
                   class="text-white"
                   clear-icon="mdi-close-circle"
                   clearable
