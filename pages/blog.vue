@@ -18,6 +18,9 @@ const data = {
   ],
   copyright: '© 2023 Nome da Sua Empresa. Todos os direitos reservados.',
 };
+
+const html = `
+.\n\n<article>\n    <section>\n        <h2>Bondade dos Familiares Proporcionou Diversão</h2>\n        <p>Na semana passada tivemos uma linda celebração de Páscoa em que as crianças foram convidadas a comparecer com seus pais e trajando fantasias de coelhinhos. A ilusão criada pelo clima festivo deu o tom para o divertimento que foi proporcionado a todos na escola. </p> \n        <p>Muitos brinquedos foram desenvolvidos para as crianças e os pais também se divertiram com os jogos e atividades elaboradas pela equipe de organização. As comidas da festa eram gostosas e não faltou água e refrigerantes para os familiares. </p>\n    </section>\n    \n    <section>\n        <h2>Chocolate e Simpatia</h2>\n        <p>Como a Páscoa é sinônimo de chegada do coelho, não poderia faltar chocolate para animar a criançada! Os pais traziam caixas de chocolates e as mesas estavam repletas de guloseimas! </p>\n        <p>Além da criatividade na hora de decorar, para deixar o local a cara da Páscoa, o acolhimento da equipe tornou o ambiente mais agradável e os visitantes evidenciavam a satisfação de receber um tratamento tão amigo. </p>\n    </section>\n    \n    <section>\n        <h2>União dos Eventos</h2>\n        <p>Ver todas aquelas cores trocando entre si criava uma visão divertida, estimulando a criatividade em muitos. Os pais possuem o intuito de varias atividades em conjunto para os filhos e a Páscoa foi mais um motivo para essas uniões se tornarem mais intensas. </p>\n        <p>As histórias bíblicas eram apresentadas aos moradores locais e tendo alcançadas as crianças havia periodos de lazer, contato com a natureza e outras coisas que despertavam o interesse de todos. </p>\n    </section>\n    \n    <section>\n        <h2>Garantia de Praticar o Bem</h2>\n        <p>O cenário criado pela Páscoa foi formado com base nos princípios de bondade e esperança, onde cada um devia praticar o bem de forma abnegada para todos. Espalhar alegria com a força do amor e a energia criativa nos deu a liberdade que o mundo oferece para expandir e fortalecer o parapeto de harmonia. </p>\n        <p>Foi mais um momento de amor, compreensão e fidelidade para todos aqueles que participaram, que saíram com um coração cheio. Esperamos que possamos ter outros acontecimentos igualmente prazerosos e que todos possam entender o verdadeiro significado da Páscoa, que é o retorno triunfante do Senhor à Terra. </p>\n    </section>\n\n</article>`;
 </script>
 
 <template>
@@ -48,62 +51,7 @@ const data = {
                 </v-row>
                 <v-row>
                   <v-col cols="12">
-                    <article>
-                      <p>
-                        Olá, queridos leitores do blog da escola! Temos o prazer de trazer a vocês um emocionante relato do evento que
-                        agitou nossa escola na última semana: a tão esperada Festa Junina! Com muita alegria, música, danças e comidas
-                        típicas, nossa festa foi uma verdadeira celebração das tradições juninas.
-                      </p>
-
-                      <h2>Preparativos e Decoração: Uma Atmosfera Encantadora</h2>
-                      <p>
-                        Desde o início do mês, nossos alunos e professores trabalharam incansavelmente para transformar nosso espaço escolar
-                        em um autêntico arraial. Bandeirinhas coloridas, balões e enfeites temáticos deram um toque especial às salas de
-                        aula e aos espaços comuns. A sensação de entrar na escola e ser transportado para uma autêntica festa junina era
-                        realmente mágica!
-                      </p>
-
-                      <h2>Apresentações Culturais: Danças e Músicas que Encantaram a Todos</h2>
-                      <p>
-                        Uma das partes mais aguardadas da festa foram as apresentações culturais dos alunos. Desde os mais pequeninos até os
-                        mais velhos, todos tiveram a chance de mostrar seus talentos e espalhar alegria no palco. As danças tradicionais,
-                        como a quadrilha, foram executadas com maestria, levando os espectadores a se envolverem e até mesmo a participarem
-                        das coreografias animadas.
-                      </p>
-                      <p>
-                        As músicas típicas, tocadas por nossa talentosa banda escolar, criaram uma atmosfera vibrante, fazendo com que todos
-                        se sentissem parte de um grande forró. Ouvir os acordes das sanfonas e as batidas dos triângulos nos fez dançar e
-                        cantar juntos, celebrando a rica cultura junina.
-                      </p>
-
-                      <h2>Comidas Típicas: Sabores que Aqueceram o Coração</h2>
-                      <p>
-                        E é claro que não podemos esquecer da parte mais saborosa da festa: as comidas típicas! Nossos chefs de cozinha
-                        prepararam um verdadeiro banquete com quitutes tradicionais, como canjica, quentão, milho cozido, pamonha e muito
-                        mais. As barracas de alimentos foram um ponto de encontro para todos, onde compartilhamos risadas, histórias e, é
-                        claro, degustamos essas deliciosas iguarias.
-                      </p>
-
-                      <h2>Jogos e Atividades: Diversão para Todas as Idades</h2>
-                      <p>
-                        Além das apresentações e das delícias culinárias, a festa também contou com uma variedade de jogos e atividades para
-                        todas as idades. As brincadeiras típicas de quermesse, como pescaria e correio elegante, proporcionaram momentos de
-                        diversão e descontração. Foi uma ótima oportunidade para os alunos interagirem, criarem laços e se divertirem
-                        juntos.
-                      </p>
-
-                      <h2>Conclusão: Celebrando a Cultura e a Comunidade Escolar</h2>
-                      <p>
-                        A Festa Junina deste ano foi verdadeiramente memorável. Além de celebrar nossas tradições culturais, a festa também
-                        reforçou os laços de amizade e união entre alunos, professores, funcionários e familiares. Ficamos emocionados em
-                        ver como todos se envolveram e fizeram deste evento um sucesso retumbante.
-                      </p>
-                      <p>
-                        Agradecemos a todos os envolvidos por fazerem desta Festa Junina um momento inesquecível. A celebração de nossa
-                        cultura e o espírito de comunidade que vivenciamos são exemplos do que torna nossa escola tão especial. Até o
-                        próximo evento incrível!
-                      </p>
-                    </article>
+                    <div v-html="html"></div>
                     <footer class="mt-4">
                       <p class="text-caption">Com carinho, Equipe Escolar</p>
                     </footer>
