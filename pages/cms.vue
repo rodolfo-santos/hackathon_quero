@@ -9,8 +9,8 @@ const isDisable = computed(() => {
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 
 const items = [
-  { text: 'Revisados', icon: 'mdi-flag' },
-  { text: 'Postados', icon: 'mdi-flag' },
+  { text: 'Revisados', icon: 'mdi-message-draw' },
+  { text: 'Postados', icon: 'mdi-check-decagram-outline' },
 ];
 
 const form = ref({
@@ -64,9 +64,10 @@ function clearForm() {
             <v-sheet rounded="lg">
               <v-list rounded="lg">
                 <v-list-subheader class="text-white font-weight-bold">Artigos Recentes</v-list-subheader>
-                <v-list-item v-for="(item, i) in items" :key="i" :value="item" variant="plain" class="text-white"
-                  ><template #prepend> <v-icon :icon="item.icon"></v-icon> </template
-                ></v-list-item>
+                <v-list-item v-for="(item, i) in items" :key="i" :value="item.text" variant="plain" class="text-white"
+                  ><template #prepend> <v-icon :icon="item.icon"></v-icon> </template>
+                  <v-list-item-title v-text="item.text"></v-list-item-title>
+                </v-list-item>
 
                 <v-divider class="my-2"></v-divider>
 
