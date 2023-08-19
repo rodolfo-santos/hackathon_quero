@@ -1,15 +1,12 @@
 <script setup>
 import { ref, watch } from 'vue';
-
-const variable = ref('');
-
-watch(variable, () => {});
+import { useCmsService } from '@/services/useCmsService';
 
 const isDisable = computed(() => {
   return !form.value.footerContent;
 });
 
-onMounted(() => {});
+import { ref } from 'vue';
 
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 
@@ -20,19 +17,20 @@ const items = [
 
 const form = ref({
   title: '',
-  footerContent: '',
+  content:
+    '<article>\n  <section>\n    <h2>A Semana do Coelhinho: Espírito Lúdico e Educativo</h2>\n    <p>A magia da Páscoa tomou conta da nossa escola na semana passada, quando os corredores se encheram de pequenos coelhinhos saltitantes e as atividades temáticas trouxeram alegria para alunos, pais e professores. Durante toda a semana, as crianças vestidas com suas adoráveis fantasias de coelhinhos deram vida a uma atmosfera de encanto e celebração.</p>\n  </section>\n  <section>\n    <h2>Unindo Gerações: Convite aos Pais</h2>\n    <p>Uma parte especial da celebração foi o convite estendido aos pais para participarem ativamente das atividades. A presença dos pais trouxe um elemento único para a celebração, reforçando o valor da parceria entre escola e família na educação das crianças. Os sorrisos radiantes no rosto das crianças ao compartilharem esses momentos especiais com seus pais eram testemunhos da importância desses laços.</p>\n  </section>\n  <section>\n    <h2>Delícias Doces: Chocolate e Alegria</h2>\n    <p>O aroma tentador de chocolate pairava no ar enquanto as crianças se deleitavam com uma abundância de doces deliciosos. A tradição de compartilhar chocolate na Páscoa se mostrou viva e presente na nossa escola. Pequenos ninhos de Páscoa repletos de ovos de chocolate eram um mimo adorável para cada aluno, trazendo um brilho extra aos olhos cheios de alegria.</p>\n  </section>\n  <section>\n    <h2>Lições de Compartilhamento e União</h2>\n    <p>Além da diversão e das guloseimas, a Semana do Coelhinho também transmitiu lições valiosas para nossos alunos. As atividades promoveram valores como compartilhamento, união e a importância de celebrar tradições. Através da brincadeira e do envolvimento ativo, as crianças aprenderam sobre a história e os significados culturais por trás da Páscoa, enriquecendo seus conhecimentos de maneira envolvente e lúdica.</p>\n  </section>\n</article>',
   author: '',
 });
 
-function clearForm() {
-  form.value.title = '';
-  form.value.footerContent = '';
-  form.value.author = '';
-  console.log('teste');
+async function generateTitle() {
+  const data = await useCmsService().generateTitle(form.value.content);
+  form.value.title = data.result;
 }
 
-function submitForm() {
-  console.log('Chamada para API');
+function clearForm() {
+  form.value.title = '';
+  form.value.content = '';
+  form.value.author = '';
 }
 </script>
 
@@ -81,7 +79,7 @@ function submitForm() {
 
           <v-col>
             <v-sheet min-height="70vh" rounded="lg" class="pa-10 bg-grey-darken-2">
-              <v-form @submit.prevent="submitForm">
+              <v-form>
                 <v-row gap="20">
                   <v-col cols="11">
                     <v-text-field
@@ -89,6 +87,8 @@ function submitForm() {
                       variant="filled"
                       clear-icon="mdi-close-circle"
                       clearable
+                      <<<<<<<
+                      HEAD
                       label="Título do Artigo"
                       type="text"
                       @click:append="sendMessage"
@@ -103,13 +103,14 @@ function submitForm() {
                 </v-row>
 
                 <v-textarea
-                  v-model="form.footerContent"
+                  v-model="form.content"
                   class="text-white"
                   clear-icon="mdi-close-circle"
                   clearable
                   label="Conteúdo do Artigo"
                   required
                   auto-grow></v-textarea>
+
                 <v-text-field
                   v-model="form.author"
                   :prepend-icon="icon"
@@ -122,7 +123,7 @@ function submitForm() {
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
                 <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
-                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-3" @click="submitForm">Salvar</v-btn>
+                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-3">Salvar</v-btn>
               </div>
             </v-sheet>
           </v-col>
