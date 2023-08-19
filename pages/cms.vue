@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useCmsService } from '@/services/useCmsService';
 
 const isDisable = computed(() => {
-  return !form.value.footerContent;
+  return !form.value.content;
 });
 
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
