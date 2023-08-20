@@ -55,7 +55,7 @@ function clearForm() {
     <v-main>
       <v-container>
         <v-row>
-          <v-col cols="2">
+          <v-col cols="3">
             <v-sheet rounded="lg">
               <v-list rounded="lg">
                 <v-list-subheader class="text-white font-weight-bold">Artigos Recentes</v-list-subheader>
@@ -73,6 +73,12 @@ function clearForm() {
 
           <v-col>
             <v-sheet min-height="70vh" rounded="lg" class="pa-10">
+              <div class="mb-6">
+                <span class="mb-5 text-h4">Gerar Artigo</span>
+                <p>Gere um artigo de forma fácil utilizando inteligência artificial</p>
+              </div>
+              <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
+
               <v-form>
                 <section class="mb-6">
                   <v-textarea
