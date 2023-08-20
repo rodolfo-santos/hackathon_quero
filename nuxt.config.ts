@@ -13,7 +13,9 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     openAIApiKey: process.env.OPEN_AI_API_KEY,
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+    public: {
+      tinymceAPiKey: process.env.TINYMCE_API_KEY,
+    },
   },
 
   vite: {

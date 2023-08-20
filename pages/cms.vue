@@ -130,24 +130,8 @@ function insertText() {
               <v-form>
                 <section class="mb-4">
                   <span class="mb=6">Descreva o Conteúdo do Artigo</span>
-                  <client-only>
-                    <Editor
-                      api-key="mklq2i4wt1oh6v7ke96vqsmt5tzs3ehptgo7xl1vxwi12myz"
-                      :init="{
-                        toolbar:
-                          'undo redo | blocks | ' +
-                          'bold italic backcolor | alignleft aligncenter ' +
-                          'alignright alignjustify | bullist numlist outdent indent | ' +
-                          'removeformat | help',
 
-                        //skin: 'oxide-dark',
-                        //content_css: 'dark',
-                        statusbar: false,
-                        plugins: 'code',
-                      }" />
-                  </client-only>
-
-                  <!-- <v-textarea
+                  <v-textarea
                     id="myText"
                     v-model="form.description"
                     class=""
@@ -155,7 +139,7 @@ function insertText() {
                     clearable
                     label="Descreva o conteúdo do artigo"
                     required
-                    auto-grow></v-textarea> -->
+                    auto-grow></v-textarea>
                   <div class="d-flex justify-end my-4">
                     <v-btn class="bg-orange-darken-3 mr-4" prepend-icon="mdi-robot-confused-outline" @click="generateArticleByDescription">
                       {{ articleButtonText }}
@@ -180,14 +164,23 @@ function insertText() {
                     type="text"
                     @click:append="sendMessage"
                     @click:clear="clearMessage"></v-text-field>
-                  <v-textarea
-                    v-model="form.content"
-                    class=""
-                    clear-icon="mdi-close-circle"
-                    clearable
-                    label="Resultado do artigo"
-                    required
-                    auto-grow></v-textarea>
+
+                  <client-only>
+                    <Editor
+                      :api-key="useRuntimeConfig().public.tinymceAPiKey"
+                      :init="{
+                        toolbar:
+                          'undo redo | blocks | ' +
+                          'bold italic backcolor | alignleft aligncenter ' +
+                          'alignright alignjustify | bullist numlist outdent indent | ' +
+                          'removeformat | help',
+
+                        //skin: 'oxide-dark',
+                        //content_css: 'dark',
+                        statusbar: false,
+                        plugins: 'code',
+                      }" />
+                  </client-only>
                 </section>
               </v-form>
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
