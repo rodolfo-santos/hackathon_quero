@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useCmsService } from '@/services/useCmsService';
-import Logo from '@/assets/logo.png';
+import Logo from '@/assets/LogoMelhorEscolha.png';
 
 const isDisable = computed(() => {
   return !form.value.content;
@@ -42,8 +42,8 @@ function clearForm() {
   <v-app>
     <v-app-bar flat class="bg-orange-darken-4 text-white">
       <v-container class="mx-auto d-flex align-center justify-center">
-        <v-avatar class="me-4" size="60">
-          <v-img :src="Logo" alt="Logotipo Melhor Escolha"></v-img>
+        <v-avatar class="me-4" size="100">
+          <v-img :src="Logo" alt="Logotipo Melhor Escolha" :width="120"></v-img>
         </v-avatar>
 
         <v-btn v-for="link in links" :key="link" :text="link" class="font-italic" variant="text"></v-btn>
