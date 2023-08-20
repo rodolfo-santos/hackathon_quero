@@ -74,60 +74,48 @@ function clearForm() {
           <v-col>
             <v-sheet min-height="70vh" rounded="lg" class="pa-10">
               <v-form>
-                <v-row gap="20">
-                  <v-col cols="11">
-                    <v-text-field
-                      v-model="form.title"
-                      variant="filled"
-                      clear-icon="mdi-close-circle"
-                      clearable
-                      label="Título do Artigo"
-                      type="text"
-                      @click:append="sendMessage"
-                      @click:clear="clearMessage"></v-text-field>
-                  </v-col>
-                  <v-col cols="1" class="d-flex justify-center pt-4">
-                    <v-btn icon class="bg-orange-darken-3" :disabled="isDisable" @click="generateTitle">
-                      <v-icon>mdi-robot-confused-outline</v-icon>
-                      <v-tooltip activator="parent" location="start">Gerar título por Inteligência Artificial </v-tooltip>
+                <section class="mb-6">
+                  <v-textarea
+                    v-model="form.description"
+                    class="text-white"
+                    clear-icon="mdi-close-circle"
+                    clearable
+                    label="Descreva o conteúdo do artigo"
+                    required
+                    auto-grow></v-textarea>
+                  <div class="d-flex justify-end">
+                    <v-btn class="bg-orange-darken-3 mr-4" prepend-icon="mdi-robot-confused-outline" @click="generateArticleByDescription">
+                      Gerar Artigo
                     </v-btn>
-                  </v-col>
-                </v-row>
-
-                <v-row>
-                  <v-col cols="11">
-                    <v-textarea
-                      v-model="form.description"
-                      class="text-white"
-                      clear-icon="mdi-close-circle"
-                      clearable
-                      label="Descreva o conteúdo do artigo"
-                      required
-                      auto-grow></v-textarea>
-                  </v-col>
-
-                  <v-col cols="1" class="d-flex justify-center pt-4">
-                    <v-btn icon class="bg-orange-darken-3" @click="generateArticleByDescription">
-                      <v-icon>mdi-robot-confused-outline</v-icon>
-                      <v-tooltip activator="parent" location="start">Gerar Artigo </v-tooltip>
+                    <v-btn
+                      class="bg-orange-darken-3"
+                      prepend-icon="mdi-robot-confused-outline"
+                      :disabled="isDisable"
+                      @click="generateTitle">
+                      Gerar Título
                     </v-btn>
-                  </v-col>
-                </v-row>
+                  </div>
+                </section>
 
-                <v-row>
-                  <v-col cols="11">
-                    <v-textarea
-                      v-model="form.content"
-                      class="text-white"
-                      clear-icon="mdi-close-circle"
-                      clearable
-                      label="Resultado do artigo"
-                      required
-                      auto-grow></v-textarea>
-                  </v-col>
-
-                  <v-col cols="1" class="d-flex justify-center pt-4"> </v-col>
-                </v-row>
+                <section class="mb-6">
+                  <v-text-field
+                    v-model="form.title"
+                    variant="filled"
+                    clear-icon="mdi-close-circle"
+                    clearable
+                    label="Título do Artigo"
+                    type="text"
+                    @click:append="sendMessage"
+                    @click:clear="clearMessage"></v-text-field>
+                  <v-textarea
+                    v-model="form.content"
+                    class="text-white"
+                    clear-icon="mdi-close-circle"
+                    clearable
+                    label="Resultado do artigo"
+                    required
+                    auto-grow></v-textarea>
+                </section>
               </v-form>
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
