@@ -74,7 +74,7 @@ function clearForm() {
                       @click:append="sendMessage"
                       @click:clear="clearMessage"></v-text-field>
                   </v-col>
-                  <v-col cols="1">
+                  <v-col cols="1" class="d-flex justify-center pt-4">
                     <v-btn icon class="bg-orange-darken-3" :disabled="isDisable" @click="generateTitle">
                       <v-icon>mdi-robot-confused-outline</v-icon>
                       <v-tooltip activator="parent" location="start">Gerar título por Inteligência Artificial </v-tooltip>
