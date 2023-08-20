@@ -23,9 +23,6 @@ async function generateTitle() {
   titleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateTitle(form.value.content);
   form.value.title = data.result;
-  isGeneratingTitle.value = false;
-  console.log('passou');
-  insertText();
   titleButtonText.value = 'Gerar Título';
 }
 
@@ -106,7 +103,7 @@ function insertText() {
         </div>
       </section>
 
-      <section class="mb-6">
+      <section class="mt-16">
         <v-text-field
           v-model="form.title"
           variant="filled"
@@ -119,25 +116,24 @@ function insertText() {
 
         <client-only>
           <Editor
+            v-model="form.content"
             :api-key="useRuntimeConfig().public.tinymceAPiKey"
             :init="{
-              toolbar:
-                'undo redo | blocks | ' +
-                'bold italic backcolor | alignleft aligncenter ' +
-                'alignright alignjustify | bullist numlist outdent indent | ' +
-                'removeformat | help',
-
-              statusbar: false,
+              height: 700,
+              menubar: false,
               plugins: 'code',
+              branding: false,
+              statusbar: false,
+              toolbar:
+                'undo redo | formatselect  | \
+           alignleft aligncenter alignright alignjustify | \
+           bullist numlist outdent indent | code',
             }" />
         </client-only>
       </section>
     </v-form>
     <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
     <div class="d-flex justify-end">
-      <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4 mr-3">Salvar</v-btn>
-      <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4 mr-3" @click="printContent">Gerar HTML</v-btn>
-
       <v-btn type="submit" class="font-weight-bold bg-orange-darken-4 mr-3" @click="submitForm">
         {{ submitButtonText }}
       </v-btn>
