@@ -108,19 +108,10 @@ function stopListening() {
     </div>
 
     <v-form>
-      <section class="mb-4">
+      <section class="mb-8">
         <div class="d-flex justify-space-between">
-          <span class="mb=6">Descreva algum acontecimento de sua escola </span>
-
-          <div>
-            <v-btn v-if="isListen" icon="mdi-microphone-off" class="bg-red" @click="stopListening">
-              <v-icon>mdi-microphone-off</v-icon>
-              <v-tooltip activator="parent" bottom> Parar de escutar</v-tooltip>
-            </v-btn>
-            <v-btn v-else icon="mdi-microphone" class="bg-green" @click="listen">
-              <v-icon>mdi-microphone</v-icon>
-              <v-tooltip activator="parent" left> Escutar </v-tooltip>
-            </v-btn>
+          <div class="mb-6">
+            <strong>Descreva algum acontecimento de sua escola </strong>
           </div>
         </div>
 
@@ -134,35 +125,24 @@ function stopListening() {
           required
           :disabled="isRequestSending"
           auto-grow></v-textarea>
-        <div class="d-flex justify-end my-4">
+        <div class="d-flex justify-end align-center my-4">
+          <v-btn v-if="isListen" class="bg-red" prepend-icon="mdi-microphone-off" @click="stopListening"> Parar de Escutar </v-btn>
+          <v-btn v-else class="bg-green" prepend-icon="mdi-microphone-off" @click="listen"> Escutar </v-btn>
+
           <v-btn
-            class="bg-orange-darken-3 mr-4"
+            class="bg-orange-darken-3 ml-4"
             prepend-icon="mdi-robot-confused-outline"
             :disabled="isRequestSending || !form.description"
             @click="generateArticleByDescription">
             {{ articleButtonText }}
           </v-btn>
-          <v-btn
-            class="bg-purple-darken-3"
-            prepend-icon="mdi-robot-confused-outline"
-            :disabled="generateTitleDisabled"
-            @click="generateTitle">
-            {{ titleButtonText }}
-          </v-btn>
         </div>
       </section>
 
-      <section class="mt-10">
-        <v-text-field
-          v-model="form.title"
-          variant="filled"
-          clear-icon="mdi-close-circle"
-          clearable
-          label="Título do Artigo"
-          type="text"
-          :disabled="isRequestSending"></v-text-field>
-
-        <p class="pa-3">Resultado do Artigo Gerado:</p>
+      <section class="mb-8">
+        <div class="mb-6">
+          <strong>Conteúdo</strong>
+        </div>
         <client-only>
           <div class="editor">
             <Editor
@@ -175,20 +155,41 @@ function stopListening() {
                 branding: false,
                 statusbar: false,
               }" />
-            <v-btn class="editor_action-button | bg-orange-darken-4" icon>
-              <v-icon>mdi-robot-confused-outline</v-icon>
-              <v-tooltip activator="parent"> Melhorar Texto </v-tooltip>
-            </v-btn>
           </div>
         </client-only>
       </section>
+
+      <section class="mt-10">
+        <div class="mb-6">
+          <strong>Título</strong>
+        </div>
+        <v-text-field
+          v-model="form.title"
+          variant="filled"
+          clear-icon="mdi-close-circle"
+          clearable
+          type="text"
+          :disabled="isRequestSending"></v-text-field>
+
+        <div class="d-flex justify-end">
+          <v-btn
+            class="bg-purple-darken-3"
+            prepend-icon="mdi-robot-confused-outline"
+            :disabled="generateTitleDisabled"
+            @click="generateTitle">
+            {{ titleButtonText }}
+          </v-btn>
+        </div>
+      </section>
     </v-form>
+
     <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
+
     <div class="d-flex justify-end">
-      <v-btn type="submit" class="font-weight-bold bg-orange-darken-4 mr-3" :disabled="!form.title || !form.content" @click="submitForm">
+      <v-btn class="font-weight-bold bg-orange-darken-4 mr-3" :disabled="!form.title || !form.content" @click="submitForm">
         {{ submitButtonText }}
       </v-btn>
-      <v-btn type="submit" class="font-weight-bold bg-grey-darken-4 mr-3" @click="clearForm">Limpar</v-btn>
+      <v-btn class="font-weight-bold bg-grey-darken-4 mr-3" @click="clearForm">Limpar</v-btn>
     </div>
 
     <v-col cols="auto">
