@@ -160,16 +160,22 @@ function stopListening() {
 
         <p class="pa-3">Resultado do Artigo Gerado:</p>
         <client-only>
-          <Editor
-            v-model="form.content"
-            :disabled="isRequestSending"
-            :api-key="useRuntimeConfig().public.tinymceAPiKey"
-            :init="{
-              height: 700,
-              plugins: 'code',
-              branding: false,
-              statusbar: false,
-            }" />
+          <div class="editor">
+            <Editor
+              v-model="form.content"
+              :disabled="isRequestSending"
+              :api-key="useRuntimeConfig().public.tinymceAPiKey"
+              :init="{
+                height: 700,
+                plugins: 'code',
+                branding: false,
+                statusbar: false,
+              }" />
+            <v-btn class="editor_action-button | bg-orange-darken-4" icon>
+              <v-icon>mdi-robot-confused-outline</v-icon>
+              <v-tooltip activator="parent"> Melhorar Texto </v-tooltip>
+            </v-btn>
+          </div>
         </client-only>
       </section>
     </v-form>
@@ -193,3 +199,15 @@ function stopListening() {
     </v-col>
   </div>
 </template>
+
+<style scoped>
+.editor {
+  position: relative;
+}
+
+.editor_action-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+</style>
