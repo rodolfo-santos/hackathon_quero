@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useCmsService } from '@/services/useCmsService';
+import { useBlogService } from '@/services/useBlogService';
 import Logo from '@/assets/LogoMelhorEscolha.png';
 
 const isDisable = computed(() => {
@@ -21,32 +22,37 @@ const form = ref({
 
 const links = ['Gestão', 'Ofertas', 'Blog', 'Serviços'];
 
-// title
-const isGeneratingTitle = ref(false);
-
-const titleButtonText = computed(() => {
-  return isGeneratingTitle.value ? 'Gerando...' : 'Gerar Título';
-});
+// title input
+const titleButtonText = ref('Gerar Título');
 
 async function generateTitle() {
-  isGeneratingTitle.value = true;
+  titleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateTitle(form.value.content);
   form.value.title = data.result;
-  isGeneratingTitle.value = false;
+  titleButtonText.value = 'Gerar Título';
 }
 
-// article
-const isGeneratingArticle = ref(false);
-
-const articleButtonText = computed(() => {
-  return isGeneratingArticle.value ? 'Gerando...' : 'Gerar Artigo';
-});
+// article input
+const articleButtonText = ref('Gerar Artigo');
 
 async function generateArticleByDescription() {
-  isGeneratingArticle.value = true;
+  articleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateArticle(form.value.description);
   form.value.content = data.result;
-  isGeneratingArticle.value = false;
+  articleButtonText.value = 'Gerar Artigo';
+}
+
+// submit form
+const submitButtonText = ref('Criar Artigo');
+
+async function submitForm() {
+  submitButtonText.value = 'Criando...';
+  await useBlogService().create(form.value);
+  submitButtonText.value = 'Artigo Criado';
+
+  setTimeout(() => {
+    submitButtonText.value = 'Criar Artigo';
+  }, 5000);
 }
 
 // utils
@@ -154,7 +160,9 @@ function clearForm() {
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
                 <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
-                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4">Salvar</v-btn>
+                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4" @click="submitForm">
+                  {{ submitButtonText }}
+                </v-btn>
               </div>
             </v-sheet>
           </v-col>

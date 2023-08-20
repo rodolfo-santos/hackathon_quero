@@ -1,4 +1,4 @@
-export const useCmsService = () => {
+export const useBlogService = () => {
   async function getAll() {
     const data = await $fetch('/api/blog', {
       method: 'GET',
