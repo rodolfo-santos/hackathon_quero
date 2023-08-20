@@ -10,8 +10,15 @@ const openAI = new OpenAIApi(configuration);
 export default defineEventHandler(async (event) => {
   const { description } = await readBody(event);
 
+  if (description.split(' ').length < 10) {
+    throw createError({
+      statusCode: 400,
+      message: 'A descrição deve conter pelo menos 10 palavras.',
+    });
+  }
+
   const prompt =
-    'Retorne pra mim a tag <article> com os parágrafos envoltos em <section> e cada <section> deve possuir um titulo e parágrafos O texto deve conter, no mínimo, 6 parágrafos. Segue a o texto base para gerar o artigo, seja criativo e adicione mais conteúdo: \n' +
+    'Crie um artigo usando a tag <article>. Dentro do artigo, inclua 6 ou mais parágrafos envoltos em tags <section>, cada <section> com um título e parágrafos. Utilize o seguinte texto como base e sinta-se à vontade para adicionar mais conteúdo: \n' +
     description;
 
   try {
