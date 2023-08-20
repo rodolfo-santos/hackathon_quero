@@ -29,12 +29,14 @@
   "dependencies": {
     "@mdi/font": "^7.2.96",
     "@tinymce/tinymce-vue": "^5.1.0",
+    "@vitest/coverage-c8": "^0.33.0",
     "@vueup/vue-quill": "^1.2.0",
     "openai": "^3.3.0",
     "sass": "^1.65.1",
     "uuid": "^9.0.0",
     "vee-validate": "^4.11.1",
     "vite-plugin-vuetify": "^1.0.2",
+    "vitest": "^0.34.2",
     "vue3-apexcharts": "^1.4.4",
     "vuetify": "^3.3.12"
   }
