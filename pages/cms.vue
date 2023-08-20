@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import Editor from '@tinymce/tinymce-vue';
 import { useCmsService } from '@/services/useCmsService';
 import Logo from '@/assets/LogoMelhorEscolha.png';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 const isDisable = computed(() => {
   return !form.value.content;
@@ -33,6 +35,8 @@ async function generateTitle() {
   const data = await useCmsService().generateTitle(form.value.content);
   form.value.title = data.result;
   isGeneratingTitle.value = false;
+  console.log('passou');
+  insertText();
 }
 
 // article
@@ -56,6 +60,15 @@ function clearForm() {
     description: '',
     content: '',
   };
+}
+
+function printContent() {
+  console.log(tinymce.activeEditor.getContent());
+}
+
+function insertText() {
+  const text = '<b>Adicionado Texto</b>';
+  tinymce.activeEditor.execCommand('mceInsertContent', false, ` ${text} `);
 }
 </script>
 
@@ -109,7 +122,25 @@ function clearForm() {
 
               <v-form>
                 <section class="mb-6">
+                  <client-only>
+                    <Editor
+                      api-key="mklq2i4wt1oh6v7ke96vqsmt5tzs3ehptgo7xl1vxwi12myz"
+                      :init="{
+                        toolbar:
+                          'undo redo | blocks | ' +
+                          'bold italic backcolor | alignleft aligncenter ' +
+                          'alignright alignjustify | bullist numlist outdent indent | ' +
+                          'removeformat | help',
+
+                        skin: 'oxide-dark',
+                        content_css: 'dark',
+                        statusbar: false,
+                        plugins: 'code',
+                      }" />
+                  </client-only>
+
                   <v-textarea
+                    id="myText"
                     v-model="form.description"
                     class="text-white"
                     clear-icon="mdi-close-circle"
@@ -155,6 +186,7 @@ function clearForm() {
               <div class="d-flex justify-end">
                 <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
                 <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4">Salvar</v-btn>
+                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4" @click="printContent">Gerar HTML</v-btn>
               </div>
             </v-sheet>
           </v-col>

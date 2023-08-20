@@ -51,3 +51,4 @@ function extractStringValue(inputString: string) {
   } else {
     return trimmedString;
 }
+}
