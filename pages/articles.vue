@@ -107,8 +107,8 @@
           <v-col>
             <v-sheet min-height="70vh" rounded="lg" class="pa-10">
               <div class="mb-6">
-                <span class="mb-5 text-h4">Gerar Artigo</span>
-                <p>Gere um artigo de forma fácil utilizando inteligência artificial</p>
+                <span class="mb-5 text-h4">Artigos mais vistos</span>
+                <p>Aqui estão os artigos mais acessados da nossa escola leia também.</p>
               </div>
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <container class="master-cards">
@@ -203,10 +203,9 @@
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-between;
-    gap: 10px;
-    width: 900px;
+    gap: 30px;
     margin: 0 auto;
-    padding: 70px;
+    
 }
 .cards:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -214,6 +213,7 @@
 
 .cards{
     border-radius: 15px;
+    padding: 15px;
 }
 .button{
     margin-right: 20px;
