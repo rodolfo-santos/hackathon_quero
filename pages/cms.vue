@@ -8,8 +8,8 @@ const isDisable = computed(() => {
 });
 
 const items = [
-  { text: 'Revisados', icon: 'mdi-message-draw' },
-  { text: 'Postados', icon: 'mdi-check-decagram-outline' },
+  { text: 'Desempenho', icon: 'mdi-message-draw' },
+  { text: 'Meus Artigos', icon: 'mdi-check-decagram-outline' },
 ];
 
 const form = ref({
@@ -19,9 +19,18 @@ const form = ref({
   content: '',
 });
 
+// title
+const isGeneratingTitle = ref(false);
+
+const titleButtonText = computed(() => {
+  return isGeneratingTitle.value ? 'Gerando...' : 'Gerar Título';
+});
+
 async function generateTitle() {
+  isGeneratingTitle.value = true;
   const data = await useCmsService().generateTitle(form.value.content);
   form.value.title = data.result;
+  isGeneratingTitle.value = false;
 }
 
 async function generateArticleByDescription() {
@@ -29,6 +38,7 @@ async function generateArticleByDescription() {
   form.value.content = data.result;
 }
 
+// utils
 function clearForm() {
   form.value = {
     title: '',
@@ -58,15 +68,11 @@ function clearForm() {
           <v-col cols="3">
             <v-sheet rounded="lg">
               <v-list rounded="lg">
-                <v-list-subheader class="text-white font-weight-bold">Artigos Recentes</v-list-subheader>
+                <v-list-subheader class="text-white font-weight-bold">Blog da Escola</v-list-subheader>
                 <v-list-item v-for="(item, i) in items" :key="i" :value="item.text" variant="plain" class="text-white"
                   ><template #prepend> <v-icon :icon="item.icon"></v-icon> </template>
                   <v-list-item-title v-text="item.text"></v-list-item-title>
                 </v-list-item>
-
-                <v-divider class="my-2"></v-divider>
-
-                <v-list-item color="grey-lighten-4" link title="Refresh"></v-list-item>
               </v-list>
             </v-sheet>
           </v-col>
@@ -98,7 +104,7 @@ function clearForm() {
                       prepend-icon="mdi-robot-confused-outline"
                       :disabled="isDisable"
                       @click="generateTitle">
-                      Gerar Título
+                      {{ titleButtonText }}
                     </v-btn>
                   </div>
                 </section>
