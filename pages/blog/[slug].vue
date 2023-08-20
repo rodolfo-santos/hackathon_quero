@@ -1,9 +1,6 @@
 <script lang="ts" setup>
-import Logo from '@/assets/LogoMelhorEscolha.png';
 import SchoolCard from '@/components/SchoolCard.vue';
 import { useBlogService } from '@/services/useBlogService';
-
-const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 
 const icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'];
 
@@ -15,28 +12,7 @@ const { data: article } = useAsyncData('article', async () => {
 
 <template>
   <v-app>
-    <v-app-bar flat class="bg-orange-darken-4 text-white">
-      <v-container class="d-flex align-center justify-space-between">
-        <v-avatar class="me-4" size="100">
-          <v-img :src="Logo" :width="120"></v-img>
-        </v-avatar>
-
-        <div class="d-flex justify-center">
-          <v-btn v-for="link in links" :key="link" :text="link" variant="plain"></v-btn>
-        </div>
-
-        <div>
-          <v-spacer></v-spacer>
-          <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-
-          <v-btn icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </div>
-      </v-container>
-    </v-app-bar>
+    <CmsHeader />
 
     <v-main>
       <div class="parallax-container">

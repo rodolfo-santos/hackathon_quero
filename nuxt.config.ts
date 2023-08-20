@@ -4,8 +4,6 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
-  components: false,
-
   sourcemap: {
     server: false,
     client: false,
