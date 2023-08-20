@@ -133,14 +133,9 @@ function insertText() {
             :api-key="useRuntimeConfig().public.tinymceAPiKey"
             :init="{
               height: 700,
-              menubar: false,
               plugins: 'code',
               branding: false,
               statusbar: false,
-              toolbar:
-                'undo redo | formatselect  | \
-           alignleft aligncenter alignright alignjustify | \
-           bullist numlist outdent indent | code',
             }" />
         </client-only>
       </section>
