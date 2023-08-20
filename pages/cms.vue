@@ -6,8 +6,6 @@ const isDisable = computed(() => {
   return !form.value.content;
 });
 
-const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
-
 const items = [
   { text: 'Revisados', icon: 'mdi-flag' },
   { text: 'Postados', icon: 'mdi-flag' },
@@ -36,24 +34,9 @@ function clearForm() {
   <v-app>
     <v-app-bar flat class="bg-orange-darken-4 text-white">
       <v-container class="mx-auto d-flex align-center justify-center">
-        <v-avatar class="me-4" color="grey-darken-1" size="32"></v-avatar>
-
-        <v-btn v-for="link in links" :key="link" :text="link" class="font-italic" variant="text"></v-btn>
+        <img src="https://kong.quero.com/logotype-melhorescola-white.svg" :width="100" />
 
         <v-spacer></v-spacer>
-
-        <v-responsive max-width="160">
-          <v-text-field
-            class="font-weight-bold"
-            density="compact"
-            flat
-            hide-details
-            label="Search"
-            rounded="lg"
-            single-line
-            variant="solo-filled"
-            append-inner-icon="mdi-magnify"></v-text-field>
-        </v-responsive>
       </v-container>
     </v-app-bar>
 
