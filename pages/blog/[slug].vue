@@ -6,7 +6,7 @@ const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 const icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'];
 
 const { data: article } = useAsyncData('article', async () => {
-  const data = await useBlogService().getUnique(useRoute().params.slug);
+  const data = await useBlogService().getUnique(useRoute().params.slug as string);
   return data;
 });
 </script>
