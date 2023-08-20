@@ -65,9 +65,12 @@ function clearForm() {
   };
 }
 
+const isListen = ref(false);
+
 let recognition;
 
 function listen() {
+  isListen.value = true;
   start();
 
   function start() {
@@ -88,12 +91,8 @@ function listen() {
 }
 
 function stopListening() {
-  if (recognition) {
-    recognition.stop(); // Parar a escuta
-    console.log('Escuta parada.');
-  } else {
-    console.log('Nenhuma escuta ativa para ser parada.');
-  }
+  if (recognition) recognition.stop();
+  isListen.value = false;
 }
 </script>
 
@@ -107,10 +106,20 @@ function stopListening() {
 
     <v-form>
       <section class="mb-4">
-        <span class="mb=6">Descreva algum acontecimento de sua escola </span>
+        <div class="d-flex justify-space-between">
+          <span class="mb=6">Descreva algum acontecimento de sua escola </span>
 
-        <v-btn @click="listen">Ouvir</v-btn>
-        <v-btn @click="stopListening">Parar de Ouvir</v-btn>
+          <div>
+            <v-btn v-if="isListen" icon="mdi-microphone-off" class="bg-red" @click="stopListening">
+              <v-icon>mdi-microphone-off</v-icon>
+              <v-tooltip activator="parent" bottom> Parar de escutar</v-tooltip>
+            </v-btn>
+            <v-btn v-else icon="mdi-microphone" class="bg-green" @click="listen">
+              <v-icon>mdi-microphone</v-icon>
+              <v-tooltip activator="parent" left> Escutar </v-tooltip>
+            </v-btn>
+          </div>
+        </div>
 
         <v-textarea
           id="myText"
