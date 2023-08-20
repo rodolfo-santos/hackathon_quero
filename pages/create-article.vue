@@ -10,6 +10,7 @@ definePageMeta({ layout: 'cms' });
 const generateTitleDisabled = computed(() => !form.value.content || isRequestSending.value);
 
 const form = ref({
+  slug: '',
   title: '',
   description: '',
   content: '',
@@ -47,7 +48,10 @@ const submitButtonText = ref('Criar Artigo');
 
 async function submitForm() {
   submitButtonText.value = 'Criando...';
-  await useBlogService().create(form.value);
+  const data = await useBlogService().create(form.value);
+
+  form.value.slug = data.slug;
+
   isCreatedArticleModalOpen.value = true;
 
   setTimeout(() => {
@@ -190,9 +194,10 @@ function stopListening() {
     <v-col cols="auto">
       <v-dialog v-model="isCreatedArticleModalOpen" class="text-center" transition="dialog-bottom-transition" width="512">
         <v-card>
-          <div class="d-flex flex-column align-center">
+          <div class="d-flex flex-column align-center pa-10">
             <v-icon class="text-h1">mdi-check-circle</v-icon>
-            <div class="text-h5 pa-12">Artigo criado com sucesso!</div>
+            <div class="text-h5">Artigo criado com sucesso!</div>
+            <v-btn class="bg-orange-darken-4 mt-10" :href="`/blog/${form.slug}`">Ver Artigo</v-btn>
           </div>
         </v-card>
       </v-dialog>
