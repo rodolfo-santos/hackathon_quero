@@ -18,16 +18,15 @@ const { data: articles } = useAsyncData('article', async () => {
     <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
     <v-container class="master-cards">
       <v-card v-for="article in articles" :key="article.slug" class="cards">
-        <v-card-title>{{ article.title }}</v-card-title>
+        <v-card-title :title="article.title">{{ article.title }}</v-card-title>
         <v-card-subtitle>Card subtitle</v-card-subtitle>
         <v-card-text>
           Lorem ipsum dolor sit amet consectetur adipsicing elit. Hic necessitabus dolor quas, impedit placeat lure quod ex commodi est, non
           sint veniam! Dicta iLLo nihil nobis docimus.
         </v-card-text>
         <div class="d-flex justify-end" style="gap: 12px">
-          <v-btn class="bg-orange">Editar</v-btn>
-          <v-btn class="bg-red">Deletar</v-btn>
-          <v-btn :to="`/blog/${article.slug}`" class="bg-green">Ver Página</v-btn>
+          <v-btn class="bg-orange ma-2">Editar</v-btn>
+          <v-btn :to="`/blog/${article.slug}`" class="bg-green ma-2">Ver</v-btn>
         </div>
       </v-card>
     </v-container>
