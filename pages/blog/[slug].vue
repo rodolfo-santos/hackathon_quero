@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { useBlogService } from '../services/useBlogService';
+import { useBlogService } from '@/services/useBlogService';
 
 const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
 
 const icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'];
 
 const { data: article } = useAsyncData('article', async () => {
-  const data = await useBlogService().getUnique('primeiro-artigo');
+  const data = await useBlogService().getUnique(useRoute().params.slug);
   return data;
 });
 </script>
