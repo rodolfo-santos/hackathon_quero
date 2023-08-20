@@ -128,7 +128,7 @@ function clearForm() {
                       {{ articleButtonText }}
                     </v-btn>
                     <v-btn
-                      class="bg-orange-darken-3"
+                      class="bg-purple-darken-3"
                       prepend-icon="mdi-robot-confused-outline"
                       :disabled="isDisable"
                       @click="generateTitle">

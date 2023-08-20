@@ -1,6 +1,6 @@
 import { sendError } from 'h3';
-import { v4 as uuid } from 'uuid';
 import { db } from '../db';
+import { stringToSlug } from '../../../assets/ts/helpers';
 
 export default defineEventHandler(async (e) => {
   const method = e.req.method;
@@ -23,7 +23,7 @@ export default defineEventHandler(async (e) => {
     }
 
     const newArticle = {
-      id: uuid(),
+      slug: stringToSlug(body.title),
       content: body.content,
       title: body.title,
     };

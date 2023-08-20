@@ -3,13 +3,13 @@ import { db } from '../db';
 export default defineEventHandler(async (e) => {
   const method = e.req.method;
   const context = e.context;
-  const { id } = context.params;
+  const { slug } = context.params as { slug: string };
 
   const findArticleById = (articleId: string) => {
     let index = 0;
 
     const article = db.articles.find((article, i) => {
-      if (article.id === articleId) {
+      if (article.slug === articleId) {
         index = i;
         return true;
       }
@@ -30,7 +30,7 @@ export default defineEventHandler(async (e) => {
   };
 
   if (method === 'PUT') {
-    const { article, index } = findArticleById(id);
+    const { article, index } = findArticleById(slug);
     const body = await readBody(e);
 
     const updateArticle = {
@@ -43,7 +43,7 @@ export default defineEventHandler(async (e) => {
   }
 
   if (method === 'DELETE') {
-    const { index } = findArticleById(id);
+    const { index } = findArticleById(slug);
     db.articles.splice(index, 1);
 
     return { message: 'item deleted' };
