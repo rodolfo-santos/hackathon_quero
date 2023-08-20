@@ -16,10 +16,6 @@
     <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Pinia&color=FFD450&logo=Pinia&logoColor=white&label=">
   </a>
   
-  <a href="https://zilla.pages.dev/?path=/story/docs-getting-started-engineering-quick-start--page">
-    <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Zilla&color=3CBB60&logo=Zilla&logoColor=white&label=">
-  </a>
-  
   <a href="https://vitest.dev/">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Vitest&color=6E9F18&logo=Vitest&logoColor=FFFFFF&label=">
   </a>
@@ -41,6 +37,15 @@
     <img alt="Prettier" src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E">
   </a>
 </p>
+
+<div align="center">
+  <a href="https://sass-lang.com/">
+    <img alt="SASS" src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">
+  </a>
+    <a href="https://www.docker.com/">
+    <img alt="Docker" src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
+  </a>
+</div>
 
 <br/>
 <br/>
