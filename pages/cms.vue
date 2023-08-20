@@ -34,7 +34,11 @@ function clearForm() {
   <v-app>
     <v-app-bar flat class="bg-orange-darken-4 text-white">
       <v-container class="mx-auto d-flex align-center justify-center">
-        <img src="https://kong.quero.com/logotype-melhorescola-white.svg" :width="100" />
+        <v-avatar class="me-4" size="60">
+          <v-img src="https://cdn-icons-png.flaticon.com/512/2021/2021646.png" alt="Logotipo Melhor Escolha"></v-img>
+        </v-avatar>
+
+        <v-btn v-for="link in links" :key="link" :text="link" class="font-italic" variant="text"></v-btn>
 
         <v-spacer></v-spacer>
       </v-container>
