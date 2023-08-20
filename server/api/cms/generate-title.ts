@@ -48,4 +48,3 @@ function extractStringValue(inputString: string) {
     return trimmedString;
   }
 }
-}

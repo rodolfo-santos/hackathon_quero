@@ -18,7 +18,7 @@ const { data: article } = useAsyncData('article', async () => {
     <v-app-bar flat class="bg-orange-darken-4 text-white">
       <v-container class="d-flex align-center justify-space-between">
         <v-avatar class="me-4" size="100">
-          <v-img :src="Logo" alt="Logotipo Melhor Escolha" :width="120"></v-img>
+          <v-img :src="Logo" :width="120"></v-img>
         </v-avatar>
 
         <div class="d-flex justify-center">
