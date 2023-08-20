@@ -12,8 +12,7 @@ const generateTitleDisabled = computed(() => !form.value.content || isRequestSen
 
 const form = ref({
   title: '',
-  description:
-    'Na semana passada os alunos se fantasiaram de coelhinho e tivemos varias atividades relacionadas a pascoas, os pais foram convidados e teve muito chocolate para as crianças',
+  description: '',
   content: '',
 });
 
@@ -36,18 +35,15 @@ const articleButtonText = ref('Gerar Artigo');
 
 async function generateArticleByDescription() {
   isRequestSending.value = true;
-  this.isLoading = true;
   articleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateArticle(form.value.description);
   form.value.content = data.result;
   isRequestSending.value = false;
-  this.isLoading = false;
   articleButtonText.value = 'Gerar Artigo';
 }
 
 // submit form
 const submitButtonText = ref('Criar Artigo');
-const isLoading = ref(false);
 
 async function submitForm() {
   submitButtonText.value = 'Criando...';
@@ -68,34 +64,34 @@ function clearForm() {
   };
 }
 
-function printContent() {
-  console.log(tinymce.activeEditor.getContent());
-}
-
-function insertText() {
-  const text = '<b>Adicionado Texto</b>';
-  tinymce.activeEditor.execCommand('mceInsertContent', false, ` ${text} `);
-}
+let recognition;
 
 function listen() {
   start();
 
   function start() {
-    const recognition = new window.webkitSpeechRecognition();
+    recognition = new window.webkitSpeechRecognition();
     recognition.interimResults = true;
     recognition.lang = 'pt-BR';
-    recognition.continuous = false;
+    recognition.continuous = true; // Alterado para true para que a escuta continue indefinidamente
     recognition.start();
     recognition.onresult = (event) => {
-      console.log(event);
       for (let i = event.resultIndex; i < event.results.length; i++) {
         if (event.results[i].isFinal) {
           const escutou = event.results[i][0].transcript.trim();
-          const content = escutou.toLowerCase();
-          form.value.content = content;
+          form.value.description += escutou;
         }
       }
     };
+  }
+}
+
+function stopListening() {
+  if (recognition) {
+    recognition.stop(); // Parar a escuta
+    console.log('Escuta parada.');
+  } else {
+    console.log('Nenhuma escuta ativa para ser parada.');
   }
 }
 </script>
@@ -113,6 +109,7 @@ function listen() {
         <span class="mb=6">Descreva algum acontecimento de sua escola </span>
 
         <v-btn @click="listen">Ouvir</v-btn>
+        <v-btn @click="stopListening">Parar de Ouvir</v-btn>
 
         <v-textarea
           id="myText"
@@ -140,7 +137,6 @@ function listen() {
             {{ titleButtonText }}
           </v-btn>
         </div>
-        <LoadingBar :loading="isLoading" />
       </section>
 
       <section class="mt-10">
