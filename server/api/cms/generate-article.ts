@@ -11,14 +11,15 @@ export default defineEventHandler(async (event) => {
   const { description } = await readBody(event);
 
   const prompt =
-    'Retorne pra mim a tag <article> com os parágrafos envoltos em <section> e cada <section> deve possuir um titulo e parágrafos O texto deve conter, no mínimo, 4 parágrafos. Segue a o texto base para gerar o artigo: \n' +
+    'Retorne pra mim a tag <article> com os parágrafos envoltos em <section> e cada <section> deve possuir um titulo e parágrafos O texto deve conter, no mínimo, 6 parágrafos. Segue a o texto base para gerar o artigo, seja criativo e adicione mais conteúdo: \n' +
     description;
 
   try {
     const completion = await openAI.createCompletion({
       model: 'text-davinci-003',
       prompt,
-      max_tokens: 2048,
+      max_tokens: 3000,
+      temperature: 0.7,
     });
 
     return {
