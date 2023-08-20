@@ -59,12 +59,6 @@ Projeto construído com [Nuxt 3](https://nuxt3.org/), [Typescript](https://www.t
 
 <br/>
 
-<div align="center">
-  <img src="./docs/assets/project_structure.png" all="Estrutura do Projeto">
-</div>
-
-<br/>
-
 ## 🚀 Como executar o projeto
 
 ```sh
