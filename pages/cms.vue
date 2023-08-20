@@ -125,10 +125,11 @@ function insertText() {
                 <span class="mb-5 text-h4">Gerar Artigo</span>
                 <p>Gere um artigo de forma fácil utilizando inteligência artificial</p>
               </div>
-              <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
+              <v-divider class="ms-3 bg-orange-darken-3" inset></v-divider>
 
               <v-form>
-                <section class="mb-6">
+                <section class="mb-4">
+                  <span class="mb=6">Descreva o Conteúdo do Artigo</span>
                   <client-only>
                     <Editor
                       api-key="mklq2i4wt1oh6v7ke96vqsmt5tzs3ehptgo7xl1vxwi12myz"
@@ -139,14 +140,14 @@ function insertText() {
                           'alignright alignjustify | bullist numlist outdent indent | ' +
                           'removeformat | help',
 
-                        skin: 'oxide-dark',
-                        content_css: 'dark',
+                        //skin: 'oxide-dark',
+                        //content_css: 'dark',
                         statusbar: false,
                         plugins: 'code',
                       }" />
                   </client-only>
 
-                  <v-textarea
+                  <!-- <v-textarea
                     id="myText"
                     v-model="form.description"
                     class=""
@@ -154,8 +155,8 @@ function insertText() {
                     clearable
                     label="Descreva o conteúdo do artigo"
                     required
-                    auto-grow></v-textarea>
-                  <div class="d-flex justify-end">
+                    auto-grow></v-textarea> -->
+                  <div class="d-flex justify-end my-4">
                     <v-btn class="bg-orange-darken-3 mr-4" prepend-icon="mdi-robot-confused-outline" @click="generateArticleByDescription">
                       {{ articleButtonText }}
                     </v-btn>
@@ -191,13 +192,13 @@ function insertText() {
               </v-form>
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
-                <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
-                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4">Salvar</v-btn>
-                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4" @click="printContent">Gerar HTML</v-btn>
-                <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 mr-3" @click="clearForm">Limpar</v-btn>
-                <v-btn type="submit" class="font-weight-bold bg-orange-darken-4" @click="submitForm">
+                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4 mr-3">Salvar</v-btn>
+                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4 mr-3" @click="printContent">Gerar HTML</v-btn>
+
+                <v-btn type="submit" class="font-weight-bold bg-orange-darken-4 mr-3" @click="submitForm">
                   {{ submitButtonText }}
                 </v-btn>
+                <v-btn type="submit" class="font-weight-bold bg-grey-darken-4 mr-3" @click="clearForm">Limpar</v-btn>
               </div>
             </v-sheet>
           </v-col>
