@@ -203,9 +203,10 @@ a:hover{
   }
   .prices{
     justify-content:space-between;
+    padding:15px;
   }
   .full-price{
-    margin-left: 170px;
+    margin-left: 140px;
   }
   .offered-price{
     margin-left: 30px;
@@ -213,10 +214,30 @@ a:hover{
   }
   .schools{
     text-decoration: none;
-    color:white;
+    color:grey;
+    padding:15px;
   }
   .Colegio{
     margin-bottom: 20px;
     background-color: aliceblue;
+    border-radius:15px;
+  }
+  .Colegio:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  h4{
+    padding:15px;
+  }
+  .logo{
+    margin-top: 10px;
+  }
+  .full-price{
+    text-decoration: line-through;
+  }
+  .card{
+    background-color: orangered;
+  }
+  .recommended-schools{
+    background-color: orangered;
   }
 </style>
