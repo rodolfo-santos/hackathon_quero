@@ -55,7 +55,15 @@ O principal objetivo do projeto é permitir que gestores escolares, sem habilida
 
 <br/>
 
-Projeto construído com [Nuxt 3](https://nuxt3.org/), [Typescript](https://www.typescriptlang.org/) e [Vite](https://vitejs.dev/config/), usando [Composition API](https://vuejs.org/guide/extras/composition-api-faq.html) para componentes e MVVM como padrão de design.
+O projeto em questão é estruturado com uma arquitetura robusta e moderna, utilizando tecnologias de ponta para garantir eficiência e qualidade no desenvolvimento. A base é construída com [Nuxt 3](https://nuxt3.org/), uma poderosa framework para aplicações [Vue JS](https://nuxt3.org/), e integra-se com [Typescript](https://www.typescriptlang.org/) , proporcionando suporte a tipagem estática, o que melhora a confiabilidade do código.
+
+Para agilizar o processo de construção, é empregado o Vite, uma ferramenta de build de nova geração que oferece desempenho otimizado. A estrutura dos componentes é gerenciada através da Composition API, que simplifica a organização do código e promove reutilização.
+
+O projeto segue o padrão de design MVVM (Model-View-ViewModel), um padrão arquitetural que facilita a separação das responsabilidades no código, tornando-o mais modular e testável.
+
+No âmbito do design, o sistema utiliza o Vuetify como design system, adotando uma aparência semelhante à usada em produtos Google, especificamente o Material Design. Isso confere uma estética moderna e agradável, alinhada com as práticas atuais de design de interface.
+
+A combinação dessas tecnologias e práticas faz deste projeto uma solução sólida e escalável, refletindo o compromisso com a excelência técnica e a inovação constante. O código está disponível no GitHub, permitindo que outros desenvolvedores contribuam e aprendam com essa arquitetura de alta qualidade.
 
 <br/>
 
