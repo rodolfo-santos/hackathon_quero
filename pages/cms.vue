@@ -33,9 +33,18 @@ async function generateTitle() {
   isGeneratingTitle.value = false;
 }
 
+// article
+const isGeneratingArticle = ref(false);
+
+const articleButtonText = computed(() => {
+  return isGeneratingArticle.value ? 'Gerando...' : 'Gerar Artigo';
+});
+
 async function generateArticleByDescription() {
+  isGeneratingArticle.value = true;
   const data = await useCmsService().generateArticle(form.value.description);
   form.value.content = data.result;
+  isGeneratingArticle.value = false;
 }
 
 // utils
@@ -97,7 +106,7 @@ function clearForm() {
                     auto-grow></v-textarea>
                   <div class="d-flex justify-end">
                     <v-btn class="bg-orange-darken-3 mr-4" prepend-icon="mdi-robot-confused-outline" @click="generateArticleByDescription">
-                      Gerar Artigo
+                      {{ articleButtonText }}
                     </v-btn>
                     <v-btn
                       class="bg-orange-darken-3"
