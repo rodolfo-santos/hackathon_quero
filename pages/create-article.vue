@@ -126,7 +126,7 @@ function stopListening() {
           class=""
           clear-icon="mdi-close-circle"
           clearable
-          label="Descreva o conteúdo do artigo"
+          placeholder="Descreva aqui o acontecimento, você pode usar o botão de microfone para falar, se preferir. Deixe a inteligência artificial fazer o resto."
           required
           :disabled="isRequestSending"
           auto-grow></v-textarea>
