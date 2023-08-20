@@ -40,15 +40,12 @@ export default defineEventHandler(async (event) => {
 });
 
 function extractStringValue(inputString: string) {
-  const trimmedString = inputString.trim(); 
+  const trimmedString = inputString.trim();
 
-  if (
-    trimmedString.startsWith('"') &&
-    trimmedString.endsWith('"') &&
-    trimmedString.length > 1 
-  ) {
-    return trimmedString.substring(1, trimmedString.length - 1); 
+  if (trimmedString.startsWith('"') && trimmedString.endsWith('"') && trimmedString.length > 1) {
+    return trimmedString.substring(1, trimmedString.length - 1);
   } else {
     return trimmedString;
+  }
 }
 }

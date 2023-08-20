@@ -1,1 +1,1 @@
-export { objectToQueryString } from './objectToQueryString';
+export { stringToSlug } from './stringToSlug';

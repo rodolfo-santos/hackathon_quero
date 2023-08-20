@@ -14,9 +14,5 @@
         </v-row>
       </v-container>
     </v-main>
-
-    <v-footer app class="text-center">
-      <!-- Conteúdo do rodapé aqui -->
-    </v-footer>
   </v-app>
 </template>

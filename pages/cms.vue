@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import Editor from '@tinymce/tinymce-vue';
 import { useCmsService } from '@/services/useCmsService';
+import { useBlogService } from '@/services/useBlogService';
 import Logo from '@/assets/LogoMelhorEscolha.png';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
@@ -23,34 +24,40 @@ const form = ref({
 
 const links = ['Gestão', 'Ofertas', 'Blog', 'Serviços'];
 
-// title
-const isGeneratingTitle = ref(false);
-
-const titleButtonText = computed(() => {
-  return isGeneratingTitle.value ? 'Gerando...' : 'Gerar Título';
-});
+// title input
+const titleButtonText = ref('Gerar Título');
 
 async function generateTitle() {
-  isGeneratingTitle.value = true;
+  titleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateTitle(form.value.content);
   form.value.title = data.result;
   isGeneratingTitle.value = false;
   console.log('passou');
   insertText();
+  titleButtonText.value = 'Gerar Título';
 }
 
-// article
-const isGeneratingArticle = ref(false);
-
-const articleButtonText = computed(() => {
-  return isGeneratingArticle.value ? 'Gerando...' : 'Gerar Artigo';
-});
+// article input
+const articleButtonText = ref('Gerar Artigo');
 
 async function generateArticleByDescription() {
-  isGeneratingArticle.value = true;
+  articleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateArticle(form.value.description);
   form.value.content = data.result;
-  isGeneratingArticle.value = false;
+  articleButtonText.value = 'Gerar Artigo';
+}
+
+// submit form
+const submitButtonText = ref('Criar Artigo');
+
+async function submitForm() {
+  submitButtonText.value = 'Criando...';
+  await useBlogService().create(form.value);
+  submitButtonText.value = 'Artigo Criado';
+
+  setTimeout(() => {
+    submitButtonText.value = 'Criar Artigo';
+  }, 5000);
 }
 
 // utils
@@ -74,7 +81,7 @@ function insertText() {
 
 <template>
   <v-app>
-    <v-app-bar flat class="bg-orange-darken-4 text-white">
+    <v-app-bar flat class="bg-orange-darken-4">
       <v-container class="d-flex align-center justify-space-between">
         <v-avatar class="me-4" size="100">
           <v-img :src="Logo" alt="Logotipo Melhor Escolha" :width="120"></v-img>
@@ -97,14 +104,14 @@ function insertText() {
       </v-container>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="bg-grey-lighten-3">
       <v-container>
         <v-row>
           <v-col cols="3">
             <v-sheet rounded="lg">
               <v-list rounded="lg">
-                <v-list-subheader class="text-white font-weight-bold">Blog da Escola</v-list-subheader>
-                <v-list-item v-for="(item, i) in items" :key="i" :value="item.text" variant="plain" class="text-white"
+                <v-list-subheader class="font-weight-bold">Blog da Escola</v-list-subheader>
+                <v-list-item v-for="(item, i) in items" :key="i" :value="item.text" variant="plain" class=""
                   ><template #prepend> <v-icon :icon="item.icon"></v-icon> </template>
                   <v-list-item-title v-text="item.text"></v-list-item-title>
                 </v-list-item>
@@ -142,7 +149,7 @@ function insertText() {
                   <v-textarea
                     id="myText"
                     v-model="form.description"
-                    class="text-white"
+                    class=""
                     clear-icon="mdi-close-circle"
                     clearable
                     label="Descreva o conteúdo do artigo"
@@ -153,7 +160,7 @@ function insertText() {
                       {{ articleButtonText }}
                     </v-btn>
                     <v-btn
-                      class="bg-orange-darken-3"
+                      class="bg-purple-darken-3"
                       prepend-icon="mdi-robot-confused-outline"
                       :disabled="isDisable"
                       @click="generateTitle">
@@ -174,7 +181,7 @@ function insertText() {
                     @click:clear="clearMessage"></v-text-field>
                   <v-textarea
                     v-model="form.content"
-                    class="text-white"
+                    class=""
                     clear-icon="mdi-close-circle"
                     clearable
                     label="Resultado do artigo"
@@ -187,6 +194,10 @@ function insertText() {
                 <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
                 <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4">Salvar</v-btn>
                 <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4" @click="printContent">Gerar HTML</v-btn>
+                <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 mr-3" @click="clearForm">Limpar</v-btn>
+                <v-btn type="submit" class="font-weight-bold bg-orange-darken-4" @click="submitForm">
+                  {{ submitButtonText }}
+                </v-btn>
               </div>
             </v-sheet>
           </v-col>
