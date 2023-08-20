@@ -27,7 +27,7 @@ const { data: articles } = useAsyncData('article', async () => {
         <div class="d-flex justify-end" style="gap: 12px">
           <v-btn class="bg-orange">Editar</v-btn>
           <v-btn class="bg-red">Deletar</v-btn>
-          <v-btn class="bg-green">Ver Página</v-btn>
+          <v-btn :to="`/blog/${article.slug}`" class="bg-green">Ver Página</v-btn>
         </div>
       </v-card>
     </v-container>
