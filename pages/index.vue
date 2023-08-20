@@ -9,8 +9,8 @@
         <div class="d-flex justify-center my-8">Nada Aqui</div>
 
         <v-row class="d-flex justify-center">
-          <v-btn to="/cms" class="mr-4" text> CMS </v-btn>
-          <v-btn to="/blog" text> Blog </v-btn>
+          <v-btn to="/create-article" class="mr-4" text> CMS </v-btn>
+          <v-btn to="/primeiro-artigo" text> Blog </v-btn>
         </v-row>
       </v-container>
     </v-main>

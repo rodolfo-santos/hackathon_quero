@@ -7,7 +7,7 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 definePageMeta({ layout: 'cms' });
 
-const generateTitleDisabled = computed(() => !form.value.content);
+const generateTitleDisabled = computed(() => !form.value.content || isRequestSending.value);
 
 const form = ref({
   title: '',
@@ -16,13 +16,17 @@ const form = ref({
   content: '',
 });
 
+const isRequestSending = ref(false);
+
 // title input
 const titleButtonText = ref('Gerar Título');
 
 async function generateTitle() {
+  isRequestSending.value = true;
   titleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateTitle(form.value.content);
   form.value.title = data.result;
+  isRequestSending.value = false;
   titleButtonText.value = 'Gerar Título';
 }
 
@@ -30,9 +34,11 @@ async function generateTitle() {
 const articleButtonText = ref('Gerar Artigo');
 
 async function generateArticleByDescription() {
+  isRequestSending.value = true;
   articleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateArticle(form.value.description);
   form.value.content = data.result;
+  isRequestSending.value = false;
   articleButtonText.value = 'Gerar Artigo';
 }
 
@@ -88,9 +94,14 @@ function insertText() {
           clearable
           label="Descreva o conteúdo do artigo"
           required
+          :disabled="isRequestSending"
           auto-grow></v-textarea>
         <div class="d-flex justify-end my-4">
-          <v-btn class="bg-orange-darken-3 mr-4" prepend-icon="mdi-robot-confused-outline" @click="generateArticleByDescription">
+          <v-btn
+            class="bg-orange-darken-3 mr-4"
+            prepend-icon="mdi-robot-confused-outline"
+            :disabled="isRequestSending"
+            @click="generateArticleByDescription">
             {{ articleButtonText }}
           </v-btn>
           <v-btn
@@ -111,23 +122,20 @@ function insertText() {
           clearable
           label="Título do Artigo"
           type="text"
+          :disabled="isRequestSending"
           @click:append="sendMessage"
           @click:clear="clearMessage"></v-text-field>
 
         <client-only>
           <Editor
             v-model="form.content"
+            :disabled="isRequestSending"
             :api-key="useRuntimeConfig().public.tinymceAPiKey"
             :init="{
               height: 700,
-              menubar: false,
               plugins: 'code',
               branding: false,
               statusbar: false,
-              toolbar:
-                'undo redo | formatselect  | \
-           alignleft aligncenter alignright alignjustify | \
-           bullist numlist outdent indent | code',
             }" />
         </client-only>
       </section>
