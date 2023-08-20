@@ -11,11 +11,7 @@
   <a href="https://vitejs.dev/">
     <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Vite&color=646CFF&logo=Vite&logoColor=FFFFFF&label=">
   </a>
-  
-  <a href="https://pinia.vuejs.org/">
-    <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Pinia&color=FFD450&logo=Pinia&logoColor=white&label=">
-  </a>
-  
+
   <a href="https://vitest.dev/">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Vitest&color=6E9F18&logo=Vitest&logoColor=FFFFFF&label=">
   </a>
@@ -26,10 +22,6 @@
 </p>
 
 <p align="center">
-  <a href="https://testing-library.com/">
-    <img src="https://img.shields.io/static/v1?style=for-the-badge&message=TestingLibrary&color=EA3938&logo=TestingLibrary&logoColor=white&label=">
-  </a>
-  
   <a href="https://eslint.org/">
     <img alt="EsLint" src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white">
   </a>
