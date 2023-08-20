@@ -16,7 +16,7 @@ const form = ref({
 });
 
 const isRequestSending = ref(false);
-const dialog = ref(false);
+const isCreatedArticleModalOpen = ref(false);
 
 // title input
 const titleButtonText = ref('Gerar Título');
@@ -48,8 +48,7 @@ const submitButtonText = ref('Criar Artigo');
 async function submitForm() {
   submitButtonText.value = 'Criando...';
   await useBlogService().create(form.value);
-  submitButtonText.value = 'Artigo Criado';
-  dialog.value = true;
+  isCreatedArticleModalOpen.value = true;
 
   setTimeout(() => {
     submitButtonText.value = 'Criar Artigo';
@@ -135,7 +134,7 @@ function stopListening() {
           <v-btn
             class="bg-orange-darken-3 mr-4"
             prepend-icon="mdi-robot-confused-outline"
-            :disabled="isRequestSending"
+            :disabled="isRequestSending || !form.description"
             @click="generateArticleByDescription">
             {{ articleButtonText }}
           </v-btn>
@@ -176,21 +175,19 @@ function stopListening() {
     </v-form>
     <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
     <div class="d-flex justify-end">
-      <v-btn type="submit" class="font-weight-bold bg-orange-darken-4 mr-3" @click="submitForm">
+      <v-btn type="submit" class="font-weight-bold bg-orange-darken-4 mr-3" :disabled="!form.title || !form.content" @click="submitForm">
         {{ submitButtonText }}
       </v-btn>
       <v-btn type="submit" class="font-weight-bold bg-grey-darken-4 mr-3" @click="clearForm">Limpar</v-btn>
     </div>
 
     <v-col cols="auto">
-      <v-dialog v-model="dialog" class="text-center" transition="dialog-bottom-transition" width="512">
+      <v-dialog v-model="isCreatedArticleModalOpen" class="text-center" transition="dialog-bottom-transition" width="512">
         <v-card>
-          <v-card-text>
-            <div class="text-h5 pa-12">Artigo Criado com Sucesso!</div>
-          </v-card-text>
-          <v-card-actions class="justify-end">
-            <v-btn variant="text" @click="dialog = false">Close</v-btn>
-          </v-card-actions>
+          <div class="d-flex flex-column align-center">
+            <v-icon class="text-h1">mdi-check-circle</v-icon>
+            <div class="text-h5 pa-12">Artigo criado com sucesso!</div>
+          </div>
         </v-card>
       </v-dialog>
     </v-col>
