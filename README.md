@@ -56,8 +56,6 @@ O projeto em questão é estruturado com uma arquitetura robusta e moderna, util
 
 Para agilizar o processo de construção, é empregado o Vite, uma ferramenta de build de nova geração que oferece desempenho otimizado. A estrutura dos componentes é gerenciada através da Composition API, que simplifica a organização do código e promove reutilização.
 
-O projeto segue o padrão de design MVVM (Model-View-ViewModel), um padrão arquitetural que facilita a separação das responsabilidades no código, tornando-o mais modular e testável.
-
 No âmbito do design, o sistema utiliza o Vuetify como design system, adotando uma aparência semelhante à usada em produtos Google, especificamente o Material Design. Isso confere uma estética moderna e agradável, alinhada com as práticas atuais de design de interface.
 
 A combinação dessas tecnologias e práticas faz deste projeto uma solução sólida e escalável, refletindo o compromisso com a excelência técnica e a inovação constante. O código está disponível no GitHub, permitindo que outros desenvolvedores contribuam e aprendam com essa arquitetura de alta qualidade.
