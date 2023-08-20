@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useCmsService } from '@/services/useCmsService';
+import Logo from '@/assets/logo.png';
 
 const isDisable = computed(() => {
   return !form.value.content;
@@ -13,9 +14,9 @@ const items = [
 
 const form = ref({
   title: '',
-  content:
-    '<article>\n  <section>\n    <h2>A Semana do Coelhinho: Espírito Lúdico e Educativo</h2>\n    <p>A magia da Páscoa tomou conta da nossa escola na semana passada, quando os corredores se encheram de pequenos coelhinhos saltitantes e as atividades temáticas trouxeram alegria para alunos, pais e professores. Durante toda a semana, as crianças vestidas com suas adoráveis fantasias de coelhinhos deram vida a uma atmosfera de encanto e celebração.</p>\n  </section>\n  <section>\n    <h2>Unindo Gerações: Convite aos Pais</h2>\n    <p>Uma parte especial da celebração foi o convite estendido aos pais para participarem ativamente das atividades. A presença dos pais trouxe um elemento único para a celebração, reforçando o valor da parceria entre escola e família na educação das crianças. Os sorrisos radiantes no rosto das crianças ao compartilharem esses momentos especiais com seus pais eram testemunhos da importância desses laços.</p>\n  </section>\n  <section>\n    <h2>Delícias Doces: Chocolate e Alegria</h2>\n    <p>O aroma tentador de chocolate pairava no ar enquanto as crianças se deleitavam com uma abundância de doces deliciosos. A tradição de compartilhar chocolate na Páscoa se mostrou viva e presente na nossa escola. Pequenos ninhos de Páscoa repletos de ovos de chocolate eram um mimo adorável para cada aluno, trazendo um brilho extra aos olhos cheios de alegria.</p>\n  </section>\n  <section>\n    <h2>Lições de Compartilhamento e União</h2>\n    <p>Além da diversão e das guloseimas, a Semana do Coelhinho também transmitiu lições valiosas para nossos alunos. As atividades promoveram valores como compartilhamento, união e a importância de celebrar tradições. Através da brincadeira e do envolvimento ativo, as crianças aprenderam sobre a história e os significados culturais por trás da Páscoa, enriquecendo seus conhecimentos de maneira envolvente e lúdica.</p>\n  </section>\n</article>',
-  author: '',
+  description:
+    'Na semana passada os alunos se fantasiaram de coelhinho e tivemos varias atividades relacionadas a pascoas, os pais foram convidados e teve muito chocolate para as crianças',
+  content: '',
 });
 
 async function generateTitle() {
@@ -23,10 +24,17 @@ async function generateTitle() {
   form.value.title = data.result;
 }
 
+async function generateArticleByDescription() {
+  const data = await useCmsService().generateArticle(form.value.description);
+  form.value.content = data.result;
+}
+
 function clearForm() {
-  form.value.title = '';
-  form.value.content = '';
-  form.value.author = '';
+  form.value = {
+    title: '',
+    description: '',
+    content: '',
+  };
 }
 </script>
 
@@ -35,7 +43,7 @@ function clearForm() {
     <v-app-bar flat class="bg-orange-darken-4 text-white">
       <v-container class="mx-auto d-flex align-center justify-center">
         <v-avatar class="me-4" size="60">
-          <v-img src="https://cdn-icons-png.flaticon.com/512/2021/2021646.png" alt="Logotipo Melhor Escolha"></v-img>
+          <v-img :src="Logo" alt="Logotipo Melhor Escolha"></v-img>
         </v-avatar>
 
         <v-btn v-for="link in links" :key="link" :text="link" class="font-italic" variant="text"></v-btn>
@@ -86,23 +94,40 @@ function clearForm() {
                   </v-col>
                 </v-row>
 
-                <v-textarea
-                  v-model="form.content"
-                  class="text-white"
-                  clear-icon="mdi-close-circle"
-                  clearable
-                  label="Conteúdo do Artigo"
-                  required
-                  auto-grow></v-textarea>
+                <v-row>
+                  <v-col cols="11">
+                    <v-textarea
+                      v-model="form.description"
+                      class="text-white"
+                      clear-icon="mdi-close-circle"
+                      clearable
+                      label="Descreva o conteúdo do artigo"
+                      required
+                      auto-grow></v-textarea>
+                  </v-col>
 
-                <v-text-field
-                  v-model="form.author"
-                  :prepend-icon="icon"
-                  variant="filled"
-                  clear-icon="mdi-close-circle"
-                  clearable
-                  label="Autor"
-                  type="text"></v-text-field>
+                  <v-col cols="1" class="d-flex justify-center pt-4">
+                    <v-btn icon class="bg-orange-darken-3" @click="generateArticleByDescription">
+                      <v-icon>mdi-robot-confused-outline</v-icon>
+                      <v-tooltip activator="parent" location="start">Gerar Artigo </v-tooltip>
+                    </v-btn>
+                  </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="11">
+                    <v-textarea
+                      v-model="form.content"
+                      class="text-white"
+                      clear-icon="mdi-close-circle"
+                      clearable
+                      label="Resultado do artigo"
+                      required
+                      auto-grow></v-textarea>
+                  </v-col>
+
+                  <v-col cols="1" class="d-flex justify-center pt-4"> </v-col>
+                </v-row>
               </v-form>
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
