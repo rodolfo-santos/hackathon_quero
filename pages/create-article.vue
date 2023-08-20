@@ -16,7 +16,7 @@ const form = ref({
 });
 
 const isRequestSending = ref(false);
-const isActive = ref(false);
+const dialog = ref(false);
 
 // title input
 const titleButtonText = ref('Gerar Título');
@@ -49,10 +49,10 @@ async function submitForm() {
   submitButtonText.value = 'Criando...';
   await useBlogService().create(form.value);
   submitButtonText.value = 'Artigo Criado';
+  dialog.value = true;
 
   setTimeout(() => {
     submitButtonText.value = 'Criar Artigo';
-    isActive.value = true;
   }, 5000);
 }
 
@@ -173,18 +173,17 @@ function stopListening() {
       <v-btn type="submit" class="font-weight-bold bg-grey-darken-4 mr-3" @click="clearForm">Limpar</v-btn>
     </div>
 
-    <template>
-      <v-dialog v-if="isActive" transition="dialog-bottom-transition" width="auto">
+    <v-col cols="auto">
+      <v-dialog v-model="dialog" class="text-center" transition="dialog-bottom-transition" width="512">
         <v-card>
-          <v-toolbar color="primary" title="Opening from the bottom"></v-toolbar>
           <v-card-text>
-            <div class="text-h2 pa-12">Artigo Gerado com Sucesso!</div>
+            <div class="text-h5 pa-12">Artigo Criado com Sucesso!</div>
           </v-card-text>
           <v-card-actions class="justify-end">
-            <v-btn variant="text" @click="isActive.value = false">Close</v-btn>
+            <v-btn variant="text" @click="dialog = false">Close</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </template>
+    </v-col>
   </div>
 </template>
