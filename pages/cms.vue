@@ -67,7 +67,7 @@ function clearForm() {
 
 <template>
   <v-app>
-    <v-app-bar flat class="bg-orange-darken-4 text-white">
+    <v-app-bar flat class="bg-orange-darken-4">
       <v-container class="d-flex align-center justify-space-between">
         <v-avatar class="me-4" size="100">
           <v-img :src="Logo" alt="Logotipo Melhor Escolha" :width="120"></v-img>
@@ -90,14 +90,14 @@ function clearForm() {
       </v-container>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="bg-grey-lighten-3">
       <v-container>
         <v-row>
           <v-col cols="3">
             <v-sheet rounded="lg">
               <v-list rounded="lg">
-                <v-list-subheader class="text-white font-weight-bold">Blog da Escola</v-list-subheader>
-                <v-list-item v-for="(item, i) in items" :key="i" :value="item.text" variant="plain" class="text-white"
+                <v-list-subheader class="font-weight-bold">Blog da Escola</v-list-subheader>
+                <v-list-item v-for="(item, i) in items" :key="i" :value="item.text" variant="plain" class=""
                   ><template #prepend> <v-icon :icon="item.icon"></v-icon> </template>
                   <v-list-item-title v-text="item.text"></v-list-item-title>
                 </v-list-item>
@@ -117,7 +117,7 @@ function clearForm() {
                 <section class="mb-6">
                   <v-textarea
                     v-model="form.description"
-                    class="text-white"
+                    class=""
                     clear-icon="mdi-close-circle"
                     clearable
                     label="Descreva o conteúdo do artigo"
@@ -149,7 +149,7 @@ function clearForm() {
                     @click:clear="clearMessage"></v-text-field>
                   <v-textarea
                     v-model="form.content"
-                    class="text-white"
+                    class=""
                     clear-icon="mdi-close-circle"
                     clearable
                     label="Resultado do artigo"
@@ -159,8 +159,8 @@ function clearForm() {
               </v-form>
               <v-divider class="ms-3 my-5 bg-orange-darken-3" inset></v-divider>
               <div class="d-flex justify-end">
-                <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 text-white mr-3" @click="clearForm">Limpar</v-btn>
-                <v-btn type="submit" class="font-weight-bold text-white bg-orange-darken-4" @click="submitForm">
+                <v-btn type="submit" class="font-weight-bold bg-grey-darken-3 mr-3" @click="clearForm">Limpar</v-btn>
+                <v-btn type="submit" class="font-weight-bold bg-orange-darken-4" @click="submitForm">
                   {{ submitButtonText }}
                 </v-btn>
               </div>
