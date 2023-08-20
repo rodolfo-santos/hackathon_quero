@@ -4,6 +4,7 @@ import Editor from '@tinymce/tinymce-vue';
 import { useCmsService } from '@/services/useCmsService';
 import { useBlogService } from '@/services/useBlogService';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import LoadingBar from '@/components/LoadingBar.vue';
 
 definePageMeta({ layout: 'cms' });
 
@@ -35,15 +36,18 @@ const articleButtonText = ref('Gerar Artigo');
 
 async function generateArticleByDescription() {
   isRequestSending.value = true;
+  this.isLoading = true;
   articleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateArticle(form.value.description);
   form.value.content = data.result;
   isRequestSending.value = false;
+  this.isLoading = false;
   articleButtonText.value = 'Gerar Artigo';
 }
 
 // submit form
 const submitButtonText = ref('Criar Artigo');
+const isLoading = ref(false);
 
 async function submitForm() {
   submitButtonText.value = 'Criando...';
@@ -76,16 +80,14 @@ function insertText() {
 
 <template>
   <div>
-    <div class="mb-16">
+    <div class="mb-10">
       <span class="mb-5 text-h4">Criação de artigo</span>
       <p class="mb-6">Gere um artigo de forma fácil utilizando inteligência artificial</p>
       <v-divider></v-divider>
     </div>
 
     <v-form>
-      <section class="mb-4">
-        <span class="mb=6">Descreva algum acontecimento de sua escola </span>
-
+      <section class="mb-2">
         <v-textarea
           id="myText"
           v-model="form.description"
@@ -112,9 +114,10 @@ function insertText() {
             {{ titleButtonText }}
           </v-btn>
         </div>
+        <LoadingBar :loading="isLoading" />
       </section>
 
-      <section class="mt-16">
+      <section class="mt-10">
         <v-text-field
           v-model="form.title"
           variant="filled"
@@ -126,6 +129,7 @@ function insertText() {
           @click:append="sendMessage"
           @click:clear="clearMessage"></v-text-field>
 
+        <p class="pa-3">Resultado do Artigo Gerado:</p>
         <client-only>
           <Editor
             v-model="form.content"
