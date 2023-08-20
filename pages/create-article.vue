@@ -4,7 +4,6 @@ import Editor from '@tinymce/tinymce-vue';
 import { useCmsService } from '@/services/useCmsService';
 import { useBlogService } from '@/services/useBlogService';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
-import LoadingBar from '@/components/LoadingBar.vue';
 
 definePageMeta({ layout: 'cms' });
 
@@ -18,6 +17,7 @@ const form = ref({
 });
 
 const isRequestSending = ref(false);
+const isActive = ref(false);
 
 // title input
 const titleButtonText = ref('Gerar Título');
@@ -36,18 +36,15 @@ const articleButtonText = ref('Gerar Artigo');
 
 async function generateArticleByDescription() {
   isRequestSending.value = true;
-  this.isLoading = true;
   articleButtonText.value = 'Gerando...';
   const data = await useCmsService().generateArticle(form.value.description);
   form.value.content = data.result;
   isRequestSending.value = false;
-  this.isLoading = false;
   articleButtonText.value = 'Gerar Artigo';
 }
 
 // submit form
 const submitButtonText = ref('Criar Artigo');
-const isLoading = ref(false);
 
 async function submitForm() {
   submitButtonText.value = 'Criando...';
@@ -56,6 +53,7 @@ async function submitForm() {
 
   setTimeout(() => {
     submitButtonText.value = 'Criar Artigo';
+    isActive.value = true;
   }, 5000);
 }
 
@@ -140,7 +138,6 @@ function listen() {
             {{ titleButtonText }}
           </v-btn>
         </div>
-        <LoadingBar :loading="isLoading" />
       </section>
 
       <section class="mt-10">
@@ -175,5 +172,19 @@ function listen() {
       </v-btn>
       <v-btn type="submit" class="font-weight-bold bg-grey-darken-4 mr-3" @click="clearForm">Limpar</v-btn>
     </div>
+
+    <template>
+      <v-dialog v-if="isActive" transition="dialog-bottom-transition" width="auto">
+        <v-card>
+          <v-toolbar color="primary" title="Opening from the bottom"></v-toolbar>
+          <v-card-text>
+            <div class="text-h2 pa-12">Artigo Gerado com Sucesso!</div>
+          </v-card-text>
+          <v-card-actions class="justify-end">
+            <v-btn variant="text" @click="isActive.value = false">Close</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </template>
   </div>
 </template>
