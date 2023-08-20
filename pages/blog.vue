@@ -25,8 +25,6 @@ const html = `
     <v-main class="bg-grey-lighten-3">
       <v-container>
         <v-row>
-          
-
           <v-col cols="9">
             <v-sheet min-height="70vh" rounded="lg">
               <v-container class="pa-5">
@@ -47,55 +45,57 @@ const html = `
             </v-sheet>
           </v-col>
 
-          <v-col cols="3" >
+          <v-col cols="3">
             <v-sheet rounded="lg" min-height="268">
-              <p class="card"> Escolas com bolsas disponíveis para seu filho. Venha conferir! </p>
+              <p class="card">Escolas com bolsas disponíveis para seu filho. Venha conferir!</p>
               <div class="recommended-schools">
                 <div class="recommended-schools-list">
                   <div class="Colegio">
-                      <a class="schools" href="/">
-                            <img class="logo" src="https://moppe.com.br/wp-content/uploads/2021/09/cropped-cropped-LogoM512-2.png">
-                            <h4>Moppe</h4>
-                            <div class="prices">
-                              <span class="Ev">A partir de</span>
-                              <span class="full-price"> 1658,25</span>
-                              <span class="offered-price">825,50</span>
-                            </div>
-                      </a>
+                    <a class="schools" href="/">
+                      <img class="logo" src="https://moppe.com.br/wp-content/uploads/2021/09/cropped-cropped-LogoM512-2.png" />
+                      <h4>Moppe</h4>
+                      <div class="prices">
+                        <span class="Ev">A partir de</span>
+                        <span class="full-price"> 1658,25</span>
+                        <span class="offered-price">825,50</span>
+                      </div>
+                    </a>
                   </div>
-                  
-                  <div class="Colegio">  
-                  <a class="schools" href="/">
-                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Melhor_Escolha_logo.png">
-                    <h4>Melhor escolha</h4>
-                    <div class="prices">
-                      <span class="Ev">A partir de</span>
-                      <span class="full-price"> 1430,20</span>
-                      <span class="offered-price">754,80</span>
-                    </div>
-                  </a>
+
+                  <div class="Colegio">
+                    <a class="schools" href="/">
+                      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Melhor_Escolha_logo.png" />
+                      <h4>Melhor escolha</h4>
+                      <div class="prices">
+                        <span class="Ev">A partir de</span>
+                        <span class="full-price"> 1430,20</span>
+                        <span class="offered-price">754,80</span>
+                      </div>
+                    </a>
                   </div>
                   <div class="Colegio">
-                  <a class="schools" href="/">
-                    <img class="logo" src="https://colegiobelavistasp.com.br/wp-content/uploads/2019/01/Logo-Objetivo-PDF.png">
-                    <h4>Objetivo</h4>
-                    <div class="prices">
-                      <span class="Ev">A partir de</span>
-                      <span class="full-price"> 1587,50</span>
-                      <span class="offered-price">690,90</span>
-                    </div>
-                  </a>
-                  </div> 
+                    <a class="schools" href="/">
+                      <img class="logo" src="https://colegiobelavistasp.com.br/wp-content/uploads/2019/01/Logo-Objetivo-PDF.png" />
+                      <h4>Objetivo</h4>
+                      <div class="prices">
+                        <span class="Ev">A partir de</span>
+                        <span class="full-price"> 1587,50</span>
+                        <span class="offered-price">690,90</span>
+                      </div>
+                    </a>
+                  </div>
                   <div class="Colegio">
-                  <a class="schools" href="/">
-                    <img class="logo" src="https://static.wixstatic.com/media/d36955_ba84321a9a564771bc490dd5dedf3f83~mv2.png/v1/fill/w_600,h_180,al_c,q_85,usm_0.33_1.00_0.00,enc_auto/Logo_Poliedro_Horiz_SIST_ENSINO.png">
-                    <h4>Poliedro</h4>
-                    <div class="prices">
-                      <span class="Ev">A partir de</span>
-                      <span class="full-price"> 1330,40</span>
-                      <span class="offered-price">830,15</span>
-                    </div>
-                  </a>
+                    <a class="schools" href="/">
+                      <img
+                        class="logo"
+                        src="https://static.wixstatic.com/media/d36955_ba84321a9a564771bc490dd5dedf3f83~mv2.png/v1/fill/w_600,h_180,al_c,q_85,usm_0.33_1.00_0.00,enc_auto/Logo_Poliedro_Horiz_SIST_ENSINO.png" />
+                      <h4>Poliedro</h4>
+                      <div class="prices">
+                        <span class="Ev">A partir de</span>
+                        <span class="full-price"> 1330,40</span>
+                        <span class="offered-price">830,15</span>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -109,45 +109,43 @@ const html = `
       <v-col cols="4"></v-col>
       <v-col cols="4">
         <v-form>
-        <v-row>
-          <v-col cols="4">
-            <v-text-field :counter="15" label="First name" required></v-text-field>
-          </v-col>
+          <v-row>
+            <v-col cols="4">
+              <v-text-field :counter="15" label="First name" required></v-text-field>
+            </v-col>
 
-          <v-col cols="4">
-            <v-text-field :counter="15" label="Last name" required></v-text-field>
-          </v-col>
-          <v-col class="email" cols="4">
-            <v-text-field label="E-mail" required></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row class="coment">
-          <v-col cols="12" md="12">
-            <v-textarea label="Comentário"></v-textarea>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12" md="8">
-            <v-btn class="send" type="submit" blockclass="mt-2">Submit</v-btn>
-          </v-col>
-        </v-row>
-      <v-row>
-        <v-col cols="4">
-          <p>Anterior</p>
-          <a class="link" href="/">A escola foi decorada toda com coelhos na páscoa</a>
-        </v-col>
-        <v-col cols="4">
-        </v-col>
-        <v-col cols="4">
-          <p class="next">Próxima</p>
-          <a class="link" href="/">A escola fez um evento de games para os alunos</a>
-        </v-col>
-      </v-row>
-    </v-form>
+            <v-col cols="4">
+              <v-text-field :counter="15" label="Last name" required></v-text-field>
+            </v-col>
+            <v-col class="email" cols="4">
+              <v-text-field label="E-mail" required></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row class="coment">
+            <v-col cols="12" md="12">
+              <v-textarea label="Comentário"></v-textarea>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" md="8">
+              <v-btn class="send" type="submit" blockclass="mt-2">Submit</v-btn>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="4">
+              <p>Anterior</p>
+              <a class="link" href="/">A escola foi decorada toda com coelhos na páscoa</a>
+            </v-col>
+            <v-col cols="4"> </v-col>
+            <v-col cols="4">
+              <p class="next">Próxima</p>
+              <a class="link" href="/">A escola fez um evento de games para os alunos</a>
+            </v-col>
+          </v-row>
+        </v-form>
       </v-col>
       <v-col cols="4"></v-col>
     </v-row>
-
 
     <v-footer class="text-center d-flex flex-column">
       <div>
@@ -175,48 +173,47 @@ h2 {
   width: 200px;
   align-items: center;
 }
-.link{
+.link {
   text-decoration: none;
-  color:white;
+  color: white;
 }
-.next{
+.next {
   margin-left: 220px;
 }
-a:hover{
+a:hover {
   color: orangered;
   transition: 0.5s;
 }
 .send:hover {
   background-color: orangered;
   transition: 0.5s;
-  border: solid 0.5px ;
-  }
-  .inputs{
-    margin-top: 15px;
-  }
-  .logo{
-    max-width: 50px;
-    max-height: 50px;
-  }
-  .recommended-schools-list{
-    padding: 15px;
-  }
-  .prices{
-    justify-content:space-between;
-  }
-  .full-price{
-    margin-left: 170px;
-  }
-  .offered-price{
-    margin-left: 30px;
-
-  }
-  .schools{
-    text-decoration: none;
-    color:white;
-  }
-  .Colegio{
-    margin-bottom: 20px;
-    background-color: aliceblue;
-  }
+  border: solid 0.5px;
+}
+.inputs {
+  margin-top: 15px;
+}
+.logo {
+  max-width: 50px;
+  max-height: 50px;
+}
+.recommended-schools-list {
+  padding: 15px;
+}
+.prices {
+  justify-content: space-between;
+}
+.full-price {
+  margin-left: 170px;
+}
+.offered-price {
+  margin-left: 30px;
+}
+.schools {
+  text-decoration: none;
+  color: white;
+}
+.Colegio {
+  margin-bottom: 20px;
+  background-color: aliceblue;
+}
 </style>
