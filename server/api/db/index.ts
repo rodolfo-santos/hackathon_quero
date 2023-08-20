@@ -1,6 +1,6 @@
 export const db: {
   articles: {
-    id: string;
+    slug: string;
     title: string;
     content: string;
   }[];
