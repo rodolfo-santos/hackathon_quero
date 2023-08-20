@@ -4,7 +4,7 @@
     "browser": true,
     "node": true
   },
-  "extends": ["@vue/eslint-config-prettier", "@nuxtjs/eslint-config-typescript", "plugin:prettier/recommended"],
+  "extends": ["@nuxtjs/eslint-config-typescript", "plugin:prettier/recommended"],
   "plugins": ["vue", "vuejs-accessibility", "prettier"],
-  "ignorePatterns": "*.d.ts"
+  "ignorePatterns": ["node_modules", ".nuxt", "dist", "coverage", ".vscode", ".github", "README.md", "LICENSE", "tsconfig.json"]
 }

@@ -1,5 +1,4 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "composite": true,
@@ -26,6 +25,5 @@
     "types": ["vite/client"],
     "removeComments": true
   },
-  "include": ["tests/**/*.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"],
-  "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"]
+  "exclude": ["node_modules", "dist", "**/*.js", "**/tsconfig*.json"]
 }
