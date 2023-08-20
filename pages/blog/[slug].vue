@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import SchoolCard from '@/components/SchoolCard.vue';
+import LeadCollector from '@/components/LeadCollector.vue';
 import { useBlogService } from '@/services/useBlogService';
 
 const icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'];
@@ -26,7 +27,7 @@ const { data: article } = useAsyncData('article', async () => {
       <v-container>
         <v-row>
           <v-col cols="8">
-            <v-sheet min-height="70vh" rounded="lg">
+            <v-sheet min-height="70vh" rounded="lg" class="mb-16">
               <v-container class="pa-5">
                 <v-row>
                   <v-col cols="12">
@@ -38,10 +39,15 @@ const { data: article } = useAsyncData('article', async () => {
                 </v-row>
               </v-container>
             </v-sheet>
+
+            <v-sheet min-height="70vh" rounded="lg" class="bg-grey-lighten-4 mb-16 pa-6">
+              <h2 class="mb-4">Seja o primeiro a receber nossas novidades</h2>
+              <LeadCollector />
+            </v-sheet>
           </v-col>
 
           <v-col cols="4">
-            <div class="bg-grey-lighten-3 py-8 px-4">
+            <v-sheet class="bg-grey-lighten-3 py-8 px-4 mb-4">
               <p class="mb-4">Estude na escola <strong>Escola de Teste</strong> com mensalidades que cabem no seu bolso</p>
               <div style="display: flex; gap: 12px; flex-direction: column">
                 <SchoolCard />
@@ -49,7 +55,24 @@ const { data: article } = useAsyncData('article', async () => {
                 <SchoolCard />
                 <SchoolCard />
               </div>
-            </div>
+            </v-sheet>
+
+            <v-sheet class="bg-grey-lighten-3 py-8 px-4 mb-4">
+              <p class="mb-4">Confira nossos <strong>últimos artigos</strong></p>
+
+              <v-list
+                :items="[
+                  { type: 'subheader', title: 'Últimos artigos' },
+                  { title: 'Escola é saber, alunos participam de evento.', value: 1 },
+                  { title: 'Pascoa época do coelhinho na escola', value: 2 },
+                  { title: 'Atividades infantis ', value: 3 },
+                  { type: 'divider' },
+                  { type: 'subheader', title: 'Artigos mais acessados' },
+                  { title: 'Amigos para a vida toda', value: 4 },
+                  { title: 'Animais e crianças cuidados que você deve ter', value: 5 },
+                  { title: 'Escola é para a vida toda', value: 6 },
+                ]"></v-list>
+            </v-sheet>
           </v-col>
         </v-row>
       </v-container>

@@ -33,6 +33,7 @@
     "openai": "^3.3.0",
     "sass": "^1.65.1",
     "uuid": "^9.0.0",
+    "vee-validate": "^4.11.1",
     "vite-plugin-vuetify": "^1.0.2",
     "vue3-apexcharts": "^1.4.4",
     "vuetify": "^3.3.12"
