@@ -29,6 +29,11 @@ export default defineEventHandler(async (e) => {
     return { article, index };
   };
 
+  if (method === 'GET') {
+    const { article } = findArticleById(slug);
+    return article;
+  }
+
   if (method === 'PUT') {
     const { article, index } = findArticleById(slug);
     const body = await readBody(e);
