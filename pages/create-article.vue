@@ -72,6 +72,28 @@ function insertText() {
   const text = '<b>Adicionado Texto</b>';
   tinymce.activeEditor.execCommand('mceInsertContent', false, ` ${text} `);
 }
+
+function listen() {
+  start();
+
+  function start() {
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.interimResults = true;
+    recognition.lang = 'pt-BR';
+    recognition.continuous = false;
+    recognition.start();
+    recognition.onresult = (event) => {
+      console.log(event);
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          const escutou = event.results[i][0].transcript.trim();
+          const content = escutou.toLowerCase();
+          form.value.content = content;
+        }
+      }
+    };
+  }
+}
 </script>
 
 <template>
@@ -85,6 +107,8 @@ function insertText() {
     <v-form>
       <section class="mb-4">
         <span class="mb=6">Descreva algum acontecimento de sua escola </span>
+
+        <v-btn @click="listen">Ouvir</v-btn>
 
         <v-textarea
           id="myText"
@@ -122,9 +146,7 @@ function insertText() {
           clearable
           label="Título do Artigo"
           type="text"
-          :disabled="isRequestSending"
-          @click:append="sendMessage"
-          @click:clear="clearMessage"></v-text-field>
+          :disabled="isRequestSending"></v-text-field>
 
         <client-only>
           <Editor
