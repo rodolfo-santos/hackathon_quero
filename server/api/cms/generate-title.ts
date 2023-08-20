@@ -40,15 +40,14 @@ export default defineEventHandler(async (event) => {
 });
 
 function extractStringValue(inputString: string) {
-  const trimmedString = inputString.trim(); // Remove espaços em branco no início e no final da string
+  const trimmedString = inputString.trim(); 
 
   if (
     trimmedString.startsWith('"') &&
     trimmedString.endsWith('"') &&
-    trimmedString.length > 1 // Verifica se a string tem mais de um caractere (considerando as aspas)
+    trimmedString.length > 1 
   ) {
-    return trimmedString.substring(1, trimmedString.length - 1); // Remove as aspas do início e do fim
+    return trimmedString.substring(1, trimmedString.length - 1); 
   } else {
-    return trimmedString; // Retorna a própria string se não estiver entre aspas ou tiver apenas uma aspa
-  }
+    return trimmedString;
 }
