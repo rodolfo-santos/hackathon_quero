@@ -6,7 +6,6 @@ const items = [
   { text: 'Artigos Excluídos', icon: 'mdi-text-box-remove-outline' },
   { text: 'Exportar Artigos', icon: 'mdi-export-variant' },
   { text: 'Importar Artigos', icon: 'mdi-import' },
-  { text: 'Editar Perfil', icon: 'mdi-account-edit-outline' },
 ];
 </script>
 
