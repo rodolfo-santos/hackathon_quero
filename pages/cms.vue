@@ -70,15 +70,15 @@ function insertText() {
 
 <template>
   <div>
-    <div class="mb-6">
-      <span class="mb-5 text-h4">Gerar Artigo</span>
-      <p>Gere um artigo de forma fácil utilizando inteligência artificial</p>
+    <div class="mb-16">
+      <span class="mb-5 text-h4">Criação de artigo</span>
+      <p class="mb-6">Gere um artigo de forma fácil utilizando inteligência artificial</p>
+      <v-divider></v-divider>
     </div>
-    <v-divider class="ms-3 bg-orange-darken-3" inset></v-divider>
 
     <v-form>
       <section class="mb-4">
-        <span class="mb=6">Descreva o Conteúdo do Artigo</span>
+        <span class="mb=6">Descreva algum acontecimento de sua escola </span>
 
         <v-textarea
           id="myText"
