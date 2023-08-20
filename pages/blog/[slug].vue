@@ -49,7 +49,7 @@ const { data: article } = useAsyncData('article', async () => {
       </div>
       <v-container>
         <v-row>
-          <v-col cols="9">
+          <v-col cols="8">
             <v-sheet min-height="70vh" rounded="lg">
               <v-container class="pa-5">
                 <v-row>
@@ -64,7 +64,7 @@ const { data: article } = useAsyncData('article', async () => {
             </v-sheet>
           </v-col>
 
-          <v-col cols="3">
+          <v-col cols="4">
             <div class="bg-grey-lighten-3 py-8 px-4">
               <p class="mb-4">Estude na escola <strong>Escola de Teste</strong> com mensalidades que cabem no seu bolso</p>
               <div style="display: flex; gap: 12px; flex-direction: column">

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Red+Hat+Text:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.v-container {
+  max-width: 1500px !important;
+}
